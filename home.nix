@@ -10,6 +10,8 @@
 
     home.packages = [
 	pkgs.bat
+	pkgs.neovim
+	pkgs.tree
     ];
 
 
