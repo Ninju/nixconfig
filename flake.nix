@@ -4,11 +4,12 @@
     url = "github:nix-community/home-manager";
     inputs.nixpkgs.follows = "nixpkgs";
   };
+  inputs.kmonad.url = "github:kmonad/kmonad?dir=nix";
 
 # Pin nixpkgs to the version used to build the system
 # nix.registry.nixpkgs.flake = nixpkgs;
 
-outputs = { self, nixpkgs, home-manager }:
+outputs = { self, nixpkgs, home-manager, kmonad }@inputs:
 let
   system = "x86_64-linux";
   pkgs = import nixpkgs { inherit system; };
@@ -38,6 +39,7 @@ in
       inherit system;
 
       modules = [
+        inputs.kmonad.nixosModules.default
         ./nixos-configuration/configuration.nix
         ./nixos-configuration/x1_carbon_5/configuration.nix
       ];
