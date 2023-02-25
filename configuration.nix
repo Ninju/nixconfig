@@ -27,7 +27,7 @@
 	  experimental-features = nix-command flakes
 	  '';
 
-  ssh.startAgent = true;
+  programs.ssh.startAgent = true;
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
