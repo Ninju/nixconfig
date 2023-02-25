@@ -27,26 +27,31 @@ in
     homeConfigurations = {
       "alex" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.${system};
-        modules = [ ./home.nix ./home/${system}/home.nix ];
+        modules = [
+          ./home-manager/home.nix
+          ./home-manager/${system}/home.nix
+        ];
       };
     };
 
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       inherit system;
 
-      modules =
-        [ ./configuration.nix ];
-      };
+      modules = [
+        ./nixos-configuration/configuration.nix
+        ./nixos-configuration/x1_carbon_5/configuration.nix
+      ];
+    };
 
-      devShells.${system}.default = pkgs.mkShell {
-        name = "nixos-user-env-bootstrap";
-        packages = [ 
-          pkgs.git
-          pkgs.neovim
-          homeManagerInit
-        ]; 
-
-      };
+    devShells.${system}.default = pkgs.mkShell {
+      name = "nixos-user-env-bootstrap";
+      packages = [
+        pkgs.git
+        pkgs.neovim
+        homeManagerInit
+      ];
 
     };
-  }
+
+  };
+}
