@@ -7,7 +7,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+      ./machines/x1_carbon_5/nixos/hardware-configuration.nix
     ];
 
   # Bootloader.
