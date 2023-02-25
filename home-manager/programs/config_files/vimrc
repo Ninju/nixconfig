@@ -177,7 +177,8 @@ end
 "  * Slate (grey and subtle but weird highlighting of words)
 "  * Evening
 "
-colorscheme darkblue
+" colorscheme darkblue
+colorscheme slate
 
 set cursorline
 set colorcolumn=80
