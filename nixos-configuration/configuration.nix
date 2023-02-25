@@ -5,10 +5,13 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./machines/x1_carbon_5/nixos/hardware-configuration.nix
-    ];
+  # IMPORTANT!
+  # ----------
+  # include
+  #    `imports = [ ./path/to/hardware-configuration.nix ]`
+  #
+  # in the relevant configuration.nix module (specific to the machine)
+  # ----------
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
