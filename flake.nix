@@ -27,7 +27,7 @@ in
     homeConfigurations = {
       "alex" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.${system};
-        modules = [ ./home.nix ];
+        modules = [ ./home.nix ./home/${system}/home.nix ];
       };
     };
 

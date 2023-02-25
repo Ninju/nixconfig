@@ -12,7 +12,6 @@
     pkgs.bat
     pkgs.tree
     pkgs.wget
-    pkgs.xclip
   ];
 
   imports = [
