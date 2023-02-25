@@ -10,7 +10,8 @@
 
 outputs = { self, nixpkgs, home-manager }:
 let
-  pkgs = import nixpkgs { system = "x86_64-linux"; };
+  system = "x86_64-linux";
+  pkgs = import nixpkgs { inherit system; };
 
   homeManagerInit = (pkgs.writeScriptBin "init-home-manager" 
   ''
@@ -25,18 +26,19 @@ in
   {
     homeConfigurations = {
       "alex" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        pkgs = nixpkgs.legacyPackages.${system};
         modules = [ ./home.nix ];
       };
     };
 
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
+      inherit system;
+
       modules =
         [ ./configuration.nix ];
       };
 
-      devShells.x86_64-linux.default = pkgs.mkShell {
+      devShells.${system}.default = pkgs.mkShell {
         name = "nixos-user-env-bootstrap";
         packages = [ 
           pkgs.git
