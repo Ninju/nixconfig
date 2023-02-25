@@ -1,9 +1,8 @@
-{ pkgs, cfg, ... }:
+{ pkgs, ... }:
 {
   programs.git = {
     enable = true;
     userName = "Ninju";
-    userEmail = cfg.email;
     aliases = {
       unstage = "reset HEAD --";
       pr = "pull --rebase";
@@ -26,8 +25,6 @@
       # Fixes getting dependencies from private repos in Golang
       url."git@github.com:".insteadOf = "https://github.com/";
     };
-
-    signing = cfg.signing;
 
     ignores = ["*.swp" "*~" ".bak"];
   };
