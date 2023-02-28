@@ -6,10 +6,12 @@
   };
   inputs.kmonad.url = "github:kmonad/kmonad?dir=nix";
 
+  inputs.nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
+
 # Pin nixpkgs to the version used to build the system
 # nix.registry.nixpkgs.flake = nixpkgs;
 
-outputs = { self, nixpkgs, home-manager, kmonad }@inputs:
+outputs = { self, nixpkgs, home-manager, kmonad, nix-doom-emacs }@inputs:
 let
   system = "x86_64-linux";
   pkgs = import nixpkgs { inherit system; };
@@ -29,6 +31,7 @@ in
       "alex" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.${system};
         modules = [
+          nix-doom-emacs.hmModule
           ./home-manager/home.nix
           ./home-manager/${system}/home.nix
         ];
