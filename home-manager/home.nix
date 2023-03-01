@@ -18,7 +18,6 @@
     csvkit
     feh
     fzf
-    slack
     ; };
 
   programs.git.userEmail = "alex.watt@rvu.co.uk";
