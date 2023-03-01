@@ -29,7 +29,11 @@ in
   {
     homeConfigurations = {
       "alex" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.${system};
+        inherit pkgs;
+
+        # Passed into modules as 'specialArgs'
+        extraSpecialArgs = {};
+
         modules = [
           nix-doom-emacs.hmModule
           ./home-manager/home.nix
