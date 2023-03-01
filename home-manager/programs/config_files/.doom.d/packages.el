@@ -51,7 +51,7 @@
 
 (package! ag)
 (package! company-tabnine)
-(package! company-dart :recipe (:host github :repo "sid-kurias/company-dart" :files ("*.el")))
+;; (package! company-dart :recipe (:host github :repo "sid-kurias/company-dart" :files ("*.el")))
 (package! dart-mode)
 (package! dart-server)
 (package! darkroom)
