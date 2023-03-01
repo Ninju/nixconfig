@@ -5,6 +5,11 @@
   ./hardware-configuration.nix
   ];
 
+  environment.systemPackages = with pkgs; [
+    slack
+    zoom
+  ];
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.extraEntries = { "manjaro.conf" = ''
