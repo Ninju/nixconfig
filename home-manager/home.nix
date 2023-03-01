@@ -27,5 +27,6 @@
     ./programs/neovim.nix
     ./programs/git.nix
     ./programs/kitty.nix
+    ./programs/doom_emacs.nix
   ];
 }
