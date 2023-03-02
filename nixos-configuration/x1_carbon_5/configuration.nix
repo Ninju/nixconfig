@@ -7,7 +7,7 @@
 
   environment.systemPackages = with pkgs; [
     slack
-    zoom
+    zoom-us
   ];
 
   # Bootloader.
