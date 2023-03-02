@@ -29,7 +29,7 @@ in
   {
     homeConfigurations = {
       "alex" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
+        pkgs = nixpkgs.legacyPackages.${system};
 
         # Passed into modules as 'specialArgs'
         extraSpecialArgs = {};
