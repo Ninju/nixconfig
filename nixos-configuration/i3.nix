@@ -7,13 +7,16 @@ let
 in
 {
   config = mkIf cfg.enable {
+    environment.pathsToLink = [ "/libexec" ];
+
     services.xserver.windowManager.i3 = {
       extraPackages = with pkgs; [
         i3-gaps
         i3status
         i3lock
-        conky
+        i3blocks
         rofi
+        lxappearance
       ];
     };
 
