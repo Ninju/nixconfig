@@ -12,6 +12,11 @@
   #
   # in the relevant configuration.nix module (specific to the machine)
   # ----------
+  imports = [
+    ./xmonad.nix
+    ./i3.nix
+  ];
+
 
   nix.package = pkgs.nixUnstable;
   nix.extraOptions = ''
