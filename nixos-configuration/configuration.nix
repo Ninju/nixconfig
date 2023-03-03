@@ -10,6 +10,9 @@
     ./i3.nix
   ];
 
+  # Enable the KDE Plasma Desktop Environment.
+  services.xserver.desktopManager.plasma5.enable = true;
+
 
   nix.package = pkgs.nixUnstable;
   nix.extraOptions = ''
@@ -46,12 +49,9 @@
     LC_TIME = "en_GB.UTF-8";
   };
 
+
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-
-  # Enable the KDE Plasma Desktop Environment.
-  # services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
 
   # Full keymap is handled by KMonad
   services.xserver.layout = "gb";
