@@ -19,24 +19,40 @@ in
         #
         #   config = ./path/to/xmonad.hs # (nullOr (either path str))
       };
-
-      displayManager = {
-        defaultSession = "none+xmonad";
-        lightdm = {
-          greeters.enso = {
-            enable = true;
-            blur = true;
-          };
-        };
-      };
     };
 
+
     environment.systemPackages = [
+      pkgs.xmobar
+
+      # Launcher
       pkgs.dmenu
+
+      # Keyboard-controlled web-browser
       pkgs.qutebrowser
+
       pkgs.conky
+
+      # Fake input and window management..
       pkgs.xdotool
+
+      # Music on console
       pkgs.moc
+
+      # FFMPEG
+      pkgs.ffmpeg_5-full
+
+      # Manage session
+      pkgs.lxsession
+
+      # Network Manager (TODO: see dmenu variant!)
+      pkgs.networkmanagerapplet
+
+      # Compositing
+      pkgs.picom
+
+      # Volume icon
+      pkgs.volumeicon
     ];
   };
 }
