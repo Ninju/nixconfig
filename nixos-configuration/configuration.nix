@@ -16,6 +16,16 @@
   services.xserver.windowManager.xmonad.enable = true;
   services.xserver.windowManager.i3.enable = true;
 
+  services.xserver.displayManager = {
+    defaultSession = "none+i3";
+    lightdm = {
+      greeters.enso = {
+        enable = true;
+        blur = true;
+      };
+    };
+  };
+
   nix.package = pkgs.nixUnstable;
   nix.extraOptions = ''
           experimental-features = nix-command flakes
