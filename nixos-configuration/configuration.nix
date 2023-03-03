@@ -14,6 +14,7 @@
   services.xserver.desktopManager.plasma5.enable = true;
 
   services.xserver.windowManager.xmonad.enable = true;
+  services.xserver.windowManager.i3.enable = true;
 
   nix.package = pkgs.nixUnstable;
   nix.extraOptions = ''
