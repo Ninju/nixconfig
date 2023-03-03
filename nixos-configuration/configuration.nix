@@ -5,13 +5,6 @@
 { config, pkgs, ... }:
 
 {
-  # IMPORTANT!
-  # ----------
-  # include
-  #    `imports = [ ./path/to/hardware-configuration.nix ]`
-  #
-  # in the relevant configuration.nix module (specific to the machine)
-  # ----------
   imports = [
     ./xmonad.nix
     ./i3.nix
