@@ -53,12 +53,6 @@
   # services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
 
-# services.xserver.windowManager.xmonad = {
-#	  enable = true;
-#	  enableContribAndExtras = true;
-#	  config = builtins.readFile /home/alex/.config/xmonad/xmonad2.hs;
-# };
-
   # Configure keymap in X11
   services.xserver = {
     layout = "gb";
