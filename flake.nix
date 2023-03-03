@@ -47,7 +47,6 @@ in
 
       modules = [
         inputs.kmonad.nixosModules.default
-        ./nixos-configuration/kmonad.nix
         ./nixos-configuration/configuration.nix
         ./nixos-configuration/x1_carbon_5/configuration.nix
       ];

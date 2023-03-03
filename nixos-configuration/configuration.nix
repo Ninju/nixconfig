@@ -8,6 +8,7 @@
   imports = [
     ./xmonad.nix
     ./i3.nix
+    ./kmonad.nix
   ];
 
   # Enable the KDE Plasma Desktop Environment.
@@ -66,6 +67,7 @@
   services.xserver.enable = true;
 
   # Full keymap is handled by KMonad
+  services.kmonad.enable = true;
   services.xserver.layout = "gb";
 
   # Configure console keymap
