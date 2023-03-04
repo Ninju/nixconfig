@@ -53,7 +53,7 @@ in
     };
 
     devShells.${system}.default = pkgs.mkShell {
-      name = "nixos-user-env-bootstrap";
+      name = "nixconfig-bootstrap";
       packages = [
         pkgs.git
         pkgs.neovim
