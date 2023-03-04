@@ -59,8 +59,6 @@ in
         pkgs.neovim
         homeManagerInit
       ];
-
     };
-
   };
 }
