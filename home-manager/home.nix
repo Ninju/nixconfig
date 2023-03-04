@@ -1,4 +1,7 @@
 { pkgs, config, ... }:
+let
+  customPackages = pkgs.callPackage ./packages {};
+in
 {
   home.username = "alex";
   home.homeDirectory = "/home/{home.username}";
@@ -20,7 +23,9 @@
     csvkit
     feh
     fzf
-    ; };
+    ; } ++ [
+      customPackages.dm-man
+    ];
 
   programs.git.userEmail = "alex.watt@rvu.co.uk";
 
