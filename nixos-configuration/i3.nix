@@ -21,6 +21,8 @@ in
     };
 
     environment.systemPackages = [
+      # GUI to manage X screens
+      pkgs.arandr
     ];
   };
 }
