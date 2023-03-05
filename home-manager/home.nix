@@ -29,6 +29,8 @@ in
 
   programs.git.userEmail = "alex.watt@rvu.co.uk";
 
+  services.dunst.enable = true;
+
   imports = [
     ./programs/neovim.nix
     ./programs/bash.nix
