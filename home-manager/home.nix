@@ -31,6 +31,7 @@ in
 
   imports = [
     ./programs/neovim.nix
+    ./programs/bash.nix
     ./programs/git.nix
     ./programs/kitty.nix
     ./programs/doom_emacs.nix
