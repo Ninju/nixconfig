@@ -11,9 +11,17 @@
     ./kmonad.nix
   ];
 
-  # Enable the KDE Plasma Desktop Environment.
   # --- BOOT SETTINGS ---
+  boot.loader.systemd-boot.enable = true;
+  # Only show N most recent generations in the boot menu
+  # (useful to prevent running out of disk space)
+  boot.loader.systemd-boot.configurationLimit = 50;
+
+  boot.loader.efi.canTouchEfiVariables = true;
+
   # --- DESKTOP ENVIRONMENT ---
+  services.xserver.enable = true;
+
   services.xserver.desktopManager.plasma5.enable = true;
 
   services.xserver.windowManager.xmonad.enable = true;
@@ -28,13 +36,28 @@
       };
     };
   };
+  #
+  # Enable automatic login for the user.
+  services.xserver.displayManager.autoLogin.enable = true;
+  services.xserver.displayManager.autoLogin.user = "alex";
+
+
   # --- KEYBOARD SETTINGS ---
+  services.kmonad.enable = true;
+  services.xserver.layout = "gb";
+
+  # Configure console keymap
+  console.keyMap = "uk";
+
 
   # --- NIX SETTINGS ---
   nix.package = pkgs.nixUnstable;
   nix.extraOptions = ''
           experimental-features = nix-command flakes
   '';
+  #
+  nixpkgs.config.allowUnfree = true;
+
 
   programs.ssh.startAgent = true;
 
@@ -67,17 +90,6 @@
     LC_TELEPHONE = "en_GB.UTF-8";
     LC_TIME = "en_GB.UTF-8";
   };
-
-
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Full keymap is handled by KMonad
-  services.kmonad.enable = true;
-  services.xserver.layout = "gb";
-
-  # Configure console keymap
-  console.keyMap = "uk";
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -115,12 +127,6 @@
     ];
   };
 
-  # Enable automatic login for the user.
-  services.xserver.displayManager.autoLogin.enable = true;
-  services.xserver.displayManager.autoLogin.user = "alex";
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
   # --- SYSTEM PACKAGES
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -155,5 +161,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "22.11"; # Did you read the comment?
-
 }
