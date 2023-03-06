@@ -18,7 +18,7 @@ let
   system = "x86_64-linux";
   pkgs = import nixpkgs { inherit system; };
 
-  nixosSystemBase = import ./nixos-configuration/base.nix { inherit (inputs) nixpkgs kmonad; inherit system; };
+  mkNixosSystem = import ./nixos-configuration/mkNixosSystem.nix { inherit (inputs) nixpkgs kmonad; inherit system; };
 
   homeManagerInit = (pkgs.writeScriptBin "init-home-manager"
   ''
@@ -46,13 +46,13 @@ in
       };
     };
 
-    nixosConfigurations.aw-rvu-x1c5 = nixosSystemBase {
+    nixosConfigurations.aw-rvu-x1c5 = mkNixosSystem {
       extraModules = [
         ./nixos-configuration/x1_carbon_5/configuration.nix
       ];
     };
 
-    nixosConfigurations.aw-rvu-x1c10 = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.aw-rvu-x1c10 = mkNixosSystem {
       extraModules = [
         nixos-hardware.nixosModules.lenovo-thinkpad-x1-10th-gen
       ];
