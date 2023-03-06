@@ -18,7 +18,9 @@ let
   system = "x86_64-linux";
   pkgs = import nixpkgs { inherit system; };
 
-  homeManagerInit = (pkgs.writeScriptBin "init-home-manager" 
+  nixosSystemBase = import ./nixos-configuration/base.nix { inherit (inputs) nixpkgs kmonad; inherit system; };
+
+  homeManagerInit = (pkgs.writeScriptBin "init-home-manager"
   ''
     nix build .#homeConfigurations.alex.activationPackage
     echo "Don't forget to run " 
@@ -44,27 +46,17 @@ in
       };
     };
 
-    nixosConfigurations.aw-rvu-x1c5 = nixpkgs.lib.nixosSystem {
-      inherit system;
-
-      modules = [
-        inputs.kmonad.nixosModules.default
-        ./nixos-configuration/configuration.nix
+    nixosConfigurations.aw-rvu-x1c5 = nixosSystemBase {
+      extraModules = [
         ./nixos-configuration/x1_carbon_5/configuration.nix
       ];
     };
 
     nixosConfigurations.aw-rvu-x1c10 = nixpkgs.lib.nixosSystem {
-      inherit system;
-
-      modules = [
-        inputs.kmonad.nixosModules.default
-        ./nixos-configuration/configuration.nix
-        ./nixos-configuration/x1_carbon_5/configuration.nix
+      extraModules = [
         nixos-hardware.nixosModules.lenovo-thinkpad-x1-10th-gen
       ];
     };
-
 
     devShells.${system}.default = pkgs.mkShell {
       name = "nixconfig-bootstrap";
