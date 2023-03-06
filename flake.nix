@@ -54,6 +54,18 @@ in
       ];
     };
 
+    nixosConfigurations.aw-rvu-x1c10 = nixpkgs.lib.nixosSystem {
+      inherit system;
+
+      modules = [
+        inputs.kmonad.nixosModules.default
+        ./nixos-configuration/configuration.nix
+        ./nixos-configuration/x1_carbon_5/configuration.nix
+        nixos-hardware.nixosModules.lenovo-thinkpad-x1-10th-gen
+      ];
+    };
+
+
     devShells.${system}.default = pkgs.mkShell {
       name = "nixconfig-bootstrap";
       packages = [
