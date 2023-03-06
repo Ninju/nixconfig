@@ -293,6 +293,21 @@
         "type": "github"
       }
     },
+    "nixos-hardware": {
+      "locked": {
+        "lastModified": 1678095239,
+        "narHash": "sha256-4F6jovFJcwh6OkMsY94ZrHdrvVqZi1FX5pYv6V9LIQw=",
+        "owner": "NixOS",
+        "repo": "nixos-hardware",
+        "rev": "f6610997b0fc5ea5f9e142c348fca27497efe1c7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixos-hardware",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1653326962,
@@ -457,6 +472,7 @@
         "home-manager": "home-manager",
         "kmonad": "kmonad",
         "nix-doom-emacs": "nix-doom-emacs",
+        "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_3"
       }
     },

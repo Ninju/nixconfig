@@ -1,5 +1,7 @@
 {
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.11";
+  inputs.nixos-hardware.url = "github:NixOS/nixos-hardware";
+
   inputs.home-manager = {
     url = "github:nix-community/home-manager";
     inputs.nixpkgs.follows = "nixpkgs";
@@ -11,7 +13,7 @@
 # Pin nixpkgs to the version used to build the system
 # nix.registry.nixpkgs.flake = nixpkgs;
 
-outputs = { self, nixpkgs, home-manager, kmonad, nix-doom-emacs }@inputs:
+outputs = { self, nixpkgs, nixos-hardware, home-manager, kmonad, nix-doom-emacs }@inputs:
 let
   system = "x86_64-linux";
   pkgs = import nixpkgs { inherit system; };
