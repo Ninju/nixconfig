@@ -12,6 +12,8 @@
   ];
 
   # Enable the KDE Plasma Desktop Environment.
+  # --- BOOT SETTINGS ---
+  # --- DESKTOP ENVIRONMENT ---
   services.xserver.desktopManager.plasma5.enable = true;
 
   services.xserver.windowManager.xmonad.enable = true;
@@ -26,7 +28,9 @@
       };
     };
   };
+  # --- KEYBOARD SETTINGS ---
 
+  # --- NIX SETTINGS ---
   nix.package = pkgs.nixUnstable;
   nix.extraOptions = ''
           experimental-features = nix-command flakes
@@ -34,6 +38,7 @@
 
   programs.ssh.startAgent = true;
 
+  # --- NETWORK SETTINGS
   networking.hostName = "aw-rvu-x1c5"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -44,6 +49,7 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+  # --- LOCALES SETTINGS
   # Set your time zone.
   time.timeZone = "Europe/London";
 
@@ -96,6 +102,7 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  # --- USER SETTINGS ---
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.alex = {
     isNormalUser = true;
@@ -114,7 +121,7 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
+  # --- SYSTEM PACKAGES
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = [
