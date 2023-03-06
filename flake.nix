@@ -6,8 +6,8 @@
     url = "github:nix-community/home-manager";
     inputs.nixpkgs.follows = "nixpkgs";
   };
-  inputs.kmonad.url = "github:kmonad/kmonad?dir=nix";
 
+  inputs.kmonad.url = "github:kmonad/kmonad?dir=nix";
   inputs.nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
 
 # Pin nixpkgs to the version used to build the system
