@@ -19,6 +19,10 @@
           options cryptdevice=PARTUUID="fe68be81-0849-4c49-a8c5-104ee06aa67b":root root=/dev/mapper/root add_efi_memmap
   ''; };
 
+  # Only show N most recent generations in the boot menu
+  # (useful to prevent running out of disk space)
+  boot.loader.systemd-boot.configurationLimit = 50;
+
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 }
