@@ -17,7 +17,6 @@
       vim-gitgutter
       tagbar
       colors-solarized
-      vim-surround
       vim-fireplace
       vim-salve
       vim-visual-increment
