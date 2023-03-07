@@ -2,9 +2,12 @@
 let
   customPackages = pkgs.callPackage ./packages {};
 in
+let
+  username = "alex";
+in
 {
-  home.username = "alex";
-  home.homeDirectory = "/home/{home.username}";
+  home.username = username;
+  home.homeDirectory = "/home/${username}";
   home.stateVersion = "22.11"; # To figure this out you can comment out the line and see what version it expected.
   programs.home-manager.enable = true;
 
