@@ -2,7 +2,7 @@
   "nodes": {
     "awsvpnclient": {
       "inputs": {
-        "nixpkgs": "nixpkgs_4"
+        "nixpkgs": "nixpkgs_5"
       },
       "locked": {
         "lastModified": 1650433861,
@@ -16,6 +16,24 @@
         "owner": "ymatsiuk",
         "repo": "awsvpnclient",
         "type": "github"
+      }
+    },
+    "dmenu-scripts": {
+      "inputs": {
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1677977744,
+        "narHash": "sha256-FYfIt42XaPC6XxlHBoGfOMDPp7KxskFcZUYFoMv1EU8=",
+        "owner": "Ninju1",
+        "repo": "dmscripts",
+        "rev": "97f49b5bc58396b623065c00f90ad7def2a8c7e9",
+        "type": "gitlab"
+      },
+      "original": {
+        "owner": "Ninju1",
+        "repo": "dmscripts",
+        "type": "gitlab"
       }
     },
     "doom-emacs": {
@@ -235,7 +253,7 @@
     },
     "kmonad": {
       "inputs": {
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs_2"
       },
       "locked": {
         "dir": "nix",
@@ -268,7 +286,7 @@
         "flake-utils": "flake-utils",
         "format-all": "format-all",
         "nix-straight": "nix-straight",
-        "nixpkgs": "nixpkgs_2",
+        "nixpkgs": "nixpkgs_3",
         "nose": "nose",
         "ob-racket": "ob-racket",
         "org": "org",
@@ -328,6 +346,22 @@
     },
     "nixpkgs": {
       "locked": {
+        "lastModified": 1677779205,
+        "narHash": "sha256-6DBjL9wjq86p2GczmwnHtFRnWPBPItc67gapWENBgX8=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "96e18717904dfedcd884541e5a92bf9ff632cf39",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-22.11",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
         "lastModified": 1653326962,
         "narHash": "sha256-W8feCYqKTsMre4nAEpv5Kx1PVFC+hao/LwqtB2Wci/8=",
         "owner": "NixOS",
@@ -342,7 +376,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_2": {
+    "nixpkgs_3": {
       "locked": {
         "lastModified": 1677080879,
         "narHash": "sha256-0SjW4/d3Rkw6C7hHZ5lxT4r6Pw9vzQb6Il6zYWwe2Bo=",
@@ -357,7 +391,7 @@
         "type": "indirect"
       }
     },
-    "nixpkgs_3": {
+    "nixpkgs_4": {
       "locked": {
         "lastModified": 1677179781,
         "narHash": "sha256-+peLp16ruWLuTFHo0ZUbLlS1/meS/+RsWQQ9bUAzOh8=",
@@ -373,7 +407,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_4": {
+    "nixpkgs_5": {
       "locked": {
         "narHash": "sha256-8nQx02tTzgYO21BP/dy5BCRopE8OwE8Drsw98j+Qoaw=",
         "path": "/nix/store/a33ann70s2kqn8q1h4vv4il56i0lk60g-source",
@@ -384,7 +418,7 @@
         "type": "indirect"
       }
     },
-    "nixpkgs_5": {
+    "nixpkgs_6": {
       "locked": {
         "lastModified": 1678072060,
         "narHash": "sha256-6a9Tbjhir5HxDx4uw0u6Z+LHUfYf7tsT9QxF9FN/32w=",
@@ -514,11 +548,12 @@
     },
     "root": {
       "inputs": {
+        "dmenu-scripts": "dmenu-scripts",
         "home-manager": "home-manager",
         "kmonad": "kmonad",
         "nix-doom-emacs": "nix-doom-emacs",
         "nixos-hardware": "nixos-hardware",
-        "nixpkgs": "nixpkgs_3",
+        "nixpkgs": "nixpkgs_4",
         "uswitch-nixpkgs": "uswitch-nixpkgs"
       }
     },
@@ -573,7 +608,7 @@
     "uswitch-nixpkgs": {
       "inputs": {
         "awsvpnclient": "awsvpnclient",
-        "nixpkgs": "nixpkgs_5"
+        "nixpkgs": "nixpkgs_6"
       },
       "locked": {
         "lastModified": 1678223803,

@@ -12,10 +12,12 @@
   inputs.kmonad.url = "github:kmonad/kmonad?dir=nix";
   inputs.nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
 
+  inputs.dmenu-scripts.url = "gitlab:Ninju1/dmscripts";
+
 # Pin nixpkgs to the version used to build the system
 # nix.registry.nixpkgs.flake = nixpkgs;
 
-outputs = { self, nixpkgs, nixos-hardware, uswitch-nixpkgs, home-manager, kmonad, nix-doom-emacs }@inputs:
+outputs = { self, nixpkgs, nixos-hardware, uswitch-nixpkgs, home-manager, kmonad, nix-doom-emacs, dmenu-scripts }@inputs:
 let
   system = "x86_64-linux";
   pkgs = import nixpkgs { inherit system; };
@@ -45,6 +47,7 @@ in
         extraSpecialArgs = {};
 
         modules = [
+          { nixpkgs.overlays = [ (self: super:  dmenu-scripts.packages.${system}) ]; }
           nix-doom-emacs.hmModule
           ./home-manager/home.nix
           ./home-manager/${system}/home.nix

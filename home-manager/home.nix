@@ -1,8 +1,5 @@
 { pkgs, config, ... }:
 let
-  customPackages = pkgs.callPackage ./packages {};
-in
-let
   username = "alex";
 in
 {
@@ -26,9 +23,13 @@ in
     csvkit
     feh
     fzf
-    ; } ++ [
-      customPackages.dm-man
-    ];
+    dm-ip
+    dm-man
+    dm-websearch
+    dm-kill
+    dm-translate
+    dm-colpick
+    ; };
 
   programs.git.userEmail = "alex.watt@rvu.co.uk";
 
