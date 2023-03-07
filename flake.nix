@@ -10,16 +10,18 @@
   inputs.kmonad.url = "github:kmonad/kmonad?dir=nix";
   inputs.nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
 
+  inputs.awsvpnclient.url = "github:ymatsiuk/awsvpnclient";
+
 # Pin nixpkgs to the version used to build the system
 # nix.registry.nixpkgs.flake = nixpkgs;
 
-outputs = { self, nixpkgs, nixos-hardware, home-manager, kmonad, nix-doom-emacs }@inputs:
+outputs = { self, nixpkgs, nixos-hardware, home-manager, kmonad, nix-doom-emacs, awsvpnclient }@inputs:
 let
   system = "x86_64-linux";
   pkgs = import nixpkgs { inherit system; };
 
   mkNixosSystem = import ./lib/mkNixosSystem.nix {
-    inherit (inputs) nixpkgs kmonad;
+    inherit (inputs) nixpkgs kmonad awsvpnclient;
     inherit system;
     commonConfiguration = ./nixos-configuration/configuration.nix;
   };
