@@ -13,22 +13,22 @@ in
   # https://nix.dev/anti-patterns/language#with-attrset-expression
   home.packages = builtins.attrValues {
     inherit (pkgs)
-    bat
-    silver-searcher
-    tree
-    wget
-    htop
-    jq
-    yq
-    csvkit
-    feh
-    fzf
-    dm-ip
-    dm-man
-    dm-websearch
-    dm-kill
-    dm-translate
-    dm-colpick
+      bat
+      csvkit
+      dm-colpick
+      dm-ip
+      dm-kill
+      dm-man
+      dm-translate
+      dm-websearch
+      feh
+      fzf
+      htop
+      jq
+      silver-searcher
+      tree
+      wget
+      yq
     ; };
 
   programs.git.userEmail = "alex.watt@rvu.co.uk";
