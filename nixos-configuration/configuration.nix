@@ -9,12 +9,11 @@
     ./xmonad.nix
     ./i3.nix
     ./kmonad.nix
-    ./rvu-vpn.nix
   ];
 
   # --- WORK SETTINGS ---
-  services.rvu-vpn.enable = true;
-  services.rvu-vpn.configFile = builtins.toString ./config_files/rvuvpn.ovpn;
+  services.awsvpnclient.enable = true;
+  services.awsvpnclient.configFile = "/etc/awsvpnclient/rvu.ovpn";
 
   # --- BOOT SETTINGS ---
   # Only show N most recent generations in the boot menu

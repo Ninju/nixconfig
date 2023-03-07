@@ -2,7 +2,7 @@
   "nodes": {
     "awsvpnclient": {
       "inputs": {
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs_4"
       },
       "locked": {
         "lastModified": 1650433861,
@@ -235,7 +235,7 @@
     },
     "kmonad": {
       "inputs": {
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs"
       },
       "locked": {
         "dir": "nix",
@@ -268,7 +268,7 @@
         "flake-utils": "flake-utils",
         "format-all": "format-all",
         "nix-straight": "nix-straight",
-        "nixpkgs": "nixpkgs_3",
+        "nixpkgs": "nixpkgs_2",
         "nose": "nose",
         "ob-racket": "ob-racket",
         "org": "org",
@@ -328,17 +328,6 @@
     },
     "nixpkgs": {
       "locked": {
-        "narHash": "sha256-8nQx02tTzgYO21BP/dy5BCRopE8OwE8Drsw98j+Qoaw=",
-        "path": "/nix/store/a33ann70s2kqn8q1h4vv4il56i0lk60g-source",
-        "type": "path"
-      },
-      "original": {
-        "id": "nixpkgs",
-        "type": "indirect"
-      }
-    },
-    "nixpkgs_2": {
-      "locked": {
         "lastModified": 1653326962,
         "narHash": "sha256-W8feCYqKTsMre4nAEpv5Kx1PVFC+hao/LwqtB2Wci/8=",
         "owner": "NixOS",
@@ -353,7 +342,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_3": {
+    "nixpkgs_2": {
       "locked": {
         "lastModified": 1677080879,
         "narHash": "sha256-0SjW4/d3Rkw6C7hHZ5lxT4r6Pw9vzQb6Il6zYWwe2Bo=",
@@ -368,13 +357,40 @@
         "type": "indirect"
       }
     },
-    "nixpkgs_4": {
+    "nixpkgs_3": {
       "locked": {
         "lastModified": 1677179781,
         "narHash": "sha256-+peLp16ruWLuTFHo0ZUbLlS1/meS/+RsWQQ9bUAzOh8=",
         "owner": "NixOS",
         "repo": "nixpkgs",
         "rev": "50c23cd4ff6c8344e0b4d438b027b3afabfe58dd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-22.11",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_4": {
+      "locked": {
+        "narHash": "sha256-8nQx02tTzgYO21BP/dy5BCRopE8OwE8Drsw98j+Qoaw=",
+        "path": "/nix/store/a33ann70s2kqn8q1h4vv4il56i0lk60g-source",
+        "type": "path"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "type": "indirect"
+      }
+    },
+    "nixpkgs_5": {
+      "locked": {
+        "lastModified": 1678072060,
+        "narHash": "sha256-6a9Tbjhir5HxDx4uw0u6Z+LHUfYf7tsT9QxF9FN/32w=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "47c003416297e4d59a5e3e7a8b15cdbdf5110560",
         "type": "github"
       },
       "original": {
@@ -498,12 +514,12 @@
     },
     "root": {
       "inputs": {
-        "awsvpnclient": "awsvpnclient",
         "home-manager": "home-manager",
         "kmonad": "kmonad",
         "nix-doom-emacs": "nix-doom-emacs",
         "nixos-hardware": "nixos-hardware",
-        "nixpkgs": "nixpkgs_4"
+        "nixpkgs": "nixpkgs_3",
+        "uswitch-nixpkgs": "uswitch-nixpkgs"
       }
     },
     "rotate-text": {
@@ -552,6 +568,26 @@
         "owner": "jcs-elpa",
         "repo": "ts-fold",
         "type": "github"
+      }
+    },
+    "uswitch-nixpkgs": {
+      "inputs": {
+        "awsvpnclient": "awsvpnclient",
+        "nixpkgs": "nixpkgs_5"
+      },
+      "locked": {
+        "lastModified": 1678223258,
+        "narHash": "sha256-jy+3Lpr1p601XKrRICG/HTg8Vqr0tFbuOrxEttTP0n8=",
+        "ref": "aw-flakify-and-add-aws-vpn-client",
+        "rev": "2258d1dc6901171526e170ca10a5dc7c46f8fa08",
+        "revCount": 35,
+        "type": "git",
+        "url": "ssh://git@github.com/Ninju/uswitch-nixpkgs"
+      },
+      "original": {
+        "ref": "aw-flakify-and-add-aws-vpn-client",
+        "type": "git",
+        "url": "ssh://git@github.com/Ninju/uswitch-nixpkgs"
       }
     },
     "utils": {

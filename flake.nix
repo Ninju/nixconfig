@@ -2,6 +2,8 @@
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.11";
   inputs.nixos-hardware.url = "github:NixOS/nixos-hardware";
 
+  inputs.uswitch-nixpkgs.url = "git+ssh://git@github.com/Ninju/uswitch-nixpkgs?ref=aw-flakify-and-add-aws-vpn-client";
+
   inputs.home-manager = {
     url = "github:nix-community/home-manager";
     inputs.nixpkgs.follows = "nixpkgs";
@@ -10,18 +12,16 @@
   inputs.kmonad.url = "github:kmonad/kmonad?dir=nix";
   inputs.nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
 
-  inputs.awsvpnclient.url = "github:ymatsiuk/awsvpnclient";
-
 # Pin nixpkgs to the version used to build the system
 # nix.registry.nixpkgs.flake = nixpkgs;
 
-outputs = { self, nixpkgs, nixos-hardware, home-manager, kmonad, nix-doom-emacs, awsvpnclient }@inputs:
+outputs = { self, nixpkgs, nixos-hardware, uswitch-nixpkgs, home-manager, kmonad, nix-doom-emacs }@inputs:
 let
   system = "x86_64-linux";
   pkgs = import nixpkgs { inherit system; };
 
   mkNixosSystem = import ./lib/mkNixosSystem.nix {
-    inherit (inputs) nixpkgs kmonad awsvpnclient;
+    inherit (inputs) nixpkgs kmonad;
     inherit system;
     commonConfiguration = ./nixos-configuration/configuration.nix;
   };
@@ -54,12 +54,14 @@ in
 
     nixosConfigurations.aw-rvu-x1c5 = mkNixosSystem {
       extraModules = [
+        uswitch-nixpkgs.awsvpnclient
         ./nixos-configuration/aw-rvu-x1c5/configuration.nix
       ];
     };
 
     nixosConfigurations.aw-rvu-x1c10 = mkNixosSystem {
       extraModules = [
+        uswitch-nixpkgs.awsvpnclient
         nixos-hardware.nixosModules.lenovo-thinkpad-x1-10th-gen
         ./nixos-configuration/aw-rvu-x1c10/configuration.nix
       ];
