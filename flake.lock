@@ -576,10 +576,10 @@
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "lastModified": 1678223258,
-        "narHash": "sha256-jy+3Lpr1p601XKrRICG/HTg8Vqr0tFbuOrxEttTP0n8=",
+        "lastModified": 1678223803,
+        "narHash": "sha256-Zi2HCzmquH+2VwjtkFJy3RLpTUN9heSL1i/FrV1Kqy0=",
         "ref": "aw-flakify-and-add-aws-vpn-client",
-        "rev": "2258d1dc6901171526e170ca10a5dc7c46f8fa08",
+        "rev": "f00011dc165239de37c4a72c232532b10621686d",
         "revCount": 35,
         "type": "git",
         "url": "ssh://git@github.com/Ninju/uswitch-nixpkgs"
