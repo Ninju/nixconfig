@@ -1,4 +1,4 @@
-{ nixpkgs, kmonad, system, ... }:
+{ nixpkgs, kmonad, system, commonConfiguration, ... }:
 
 { extraModules, ... }:
 nixpkgs.lib.nixosSystem {
@@ -6,6 +6,6 @@ nixpkgs.lib.nixosSystem {
 
   modules = [
     kmonad.nixosModules.default
-    ./configuration.nix
+    commonConfiguration
   ] ++ extraModules;
 }

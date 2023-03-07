@@ -18,7 +18,11 @@ let
   system = "x86_64-linux";
   pkgs = import nixpkgs { inherit system; };
 
-  mkNixosSystem = import ./nixos-configuration/mkNixosSystem.nix { inherit (inputs) nixpkgs kmonad; inherit system; };
+  mkNixosSystem = import ./lib/mkNixosSystem.nix {
+    inherit (inputs) nixpkgs kmonad;
+    inherit system;
+    commonConfiguration = ./nixos-configuration/configuration.nix;
+  };
 
   homeManagerInit = (pkgs.writeScriptBin "init-home-manager"
   ''
