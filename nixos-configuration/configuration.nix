@@ -69,7 +69,6 @@
   programs.ssh.startAgent = true;
 
   # --- NETWORK SETTINGS
-  networking.hostName = "aw-rvu-x1c5"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
