@@ -52,7 +52,7 @@ in
 
     nixosConfigurations.aw-rvu-x1c5 = mkNixosSystem {
       extraModules = [
-        ./nixos-configuration/x1_carbon_5/configuration.nix
+        ./nixos-configuration/aw-rvu-x1c5/configuration.nix
       ];
     };
 
