@@ -59,7 +59,7 @@ in
     nixosConfigurations.aw-rvu-x1c10 = mkNixosSystem {
       extraModules = [
         nixos-hardware.nixosModules.lenovo-thinkpad-x1-10th-gen
-        ./nixos-configuration/x1_carbon_10/configuration.nix
+        ./nixos-configuration/aw-rvu-x1c10/configuration.nix
       ];
     };
 
