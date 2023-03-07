@@ -12,7 +12,6 @@
   ];
 
   # --- BOOT SETTINGS ---
-  boot.loader.systemd-boot.enable = true;
   # Only show N most recent generations in the boot menu
   # (useful to prevent running out of disk space)
   boot.loader.systemd-boot.configurationLimit = 50;
