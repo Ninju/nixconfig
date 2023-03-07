@@ -49,9 +49,13 @@
   services.kmonad.enable = true;
   services.xserver.layout = "gb";
 
-  # Configure console keymap
-  console.keyMap = "uk";
-
+  # --- CONSOLE SETTINGS ---
+  console = {
+    earlySetup = true;
+    font = "ter-i32b";
+    packages = [ pkgs.terminus_font ];
+    keyMap = "uk";
+  };
 
   # --- NIX SETTINGS ---
   nix.package = pkgs.nixUnstable;
