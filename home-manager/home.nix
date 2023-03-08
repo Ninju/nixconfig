@@ -31,7 +31,9 @@ in
       tree
       wget
       yq
+
       u
+      kubectl
     ; };
 
   programs.git.userEmail = "alex.watt@rvu.co.uk";
