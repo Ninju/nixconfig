@@ -8,5 +8,6 @@ in
   home.packages = [
     pkgs.xclip
     pbcopy
+    pkgs.pavucontrol
   ];
 }
