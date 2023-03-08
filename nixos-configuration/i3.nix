@@ -13,9 +13,7 @@ in
       extraPackages = with pkgs; [
         i3-gaps
         i3status
-        i3lock
         i3blocks
-        rofi
         lxappearance
       ];
     };
