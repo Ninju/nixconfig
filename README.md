@@ -30,6 +30,8 @@ Example with i3:
 2. The i3 config is only included if i3 is enabled. This means in the top-level config, I can flip i3 and all associated services/packages on and off easily (Goal 2). As a side note, I prefer to keep the `enable = true/false` in the top level `configuration.nix` so it's easy to get an overview of what is enabled. I also prefer using dot syntax `services.xserver.windowManager.i3.enable = true` so that it works nicely with line processing tools, but this is something I like doing in any language..
 3. If I don't need the i3 config, I simply disable it, but do not delete the code. The config may be later useful. Because I only include the packages when the enable flag is true, packages aren't built unnecessarily so I get to easily temporarily disable things (Goal 3) without adding cruft to the actual build.
 
+_Please note, but ignore, that I'm currently breaking all my own rules with my user-level system config, which enables/disables things by choosing to include or not include it in the `imports` directive._
+
 # Actual experience -- one command install on new machines
 
 The dream is one command to completely reconfigure your machine exactly how you like it.. I figured this section might be a good place to put my experiences and record TODOs.
