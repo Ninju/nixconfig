@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, config, lib, ... }:
 let
   username = "alex";
 in
@@ -15,12 +15,14 @@ in
     inherit (pkgs)
       bat
       csvkit
+
       dm-colpick
       dm-ip
       dm-kill
       dm-man
       dm-translate
       dm-websearch
+
       feh
       fzf
       htop
@@ -29,6 +31,7 @@ in
       tree
       wget
       yq
+      u
     ; };
 
   programs.git.userEmail = "alex.watt@rvu.co.uk";

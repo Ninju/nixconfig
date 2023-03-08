@@ -47,7 +47,9 @@ in
         extraSpecialArgs = {};
 
         modules = [
-          { nixpkgs.overlays = [ (self: super:  dmenu-scripts.packages.${system}) ]; }
+          { nixpkgs.overlays = [ (self: super: dmenu-scripts.packages.${system})
+                                 (self: super: uswitch-nixpkgs.packages.${system})
+                               ]; }
           nix-doom-emacs.hmModule
           ./home-manager/home.nix
           ./home-manager/${system}/home.nix
