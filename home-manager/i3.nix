@@ -81,6 +81,12 @@
         "XF86AudioLowerVolume" = "exec amixer sset 'Master' 5%-";
         "XF86AudioRaiseVolume" = "exec amixer sset 'Master' 5%+";
 
+        "${modifier}+XF86MonBrightnessUp" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set +5%";
+        "${modifier}+XF86MonBrightnessDown" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 5%-";
+
+        "XF86MonBrightnessUp" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set +20%";
+        "XF86MonBrightnessDown" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 20%-";
+
         "${modifier}+Ctrl+m" = "exec ${pkgs.pavucontrol}/bin/pavucontrol";
       };
 
