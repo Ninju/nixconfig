@@ -2,10 +2,39 @@
 
 My dotfiles are managed in [nix](https://nixos.org/).
 
+If you are new to nix, in a nutshell:
+
+* My entire system config can be installed from scratch with a single command: `sudo nixos-rebuild --flake git+https://github.com/Ninju/nixconfig`
+* My user config can be installed with `home-manager switch --flake git+https://github.com/Ninju/nixconfig`
+* The result is reproducible across machines 
+* User-level config (via `home-manager`) works on other Linux distros and on Mac OS if they have the nix package manager installed
+
+## Structure
+
+### Directory structure
+* `./nixos-configuration` - System level config
+* `./home-manager` - User level config
+* `./lib` - functions
+
+### Organisation
+Goals:
+
+1. Keep packages that are related together and make it obvious they are grouped in a meaningful way
+2. To be able to easily pick and choose the packages I want and need
+3. Easily switch to window managers I'm likely to use again, without having to dig through old git commits 
+
+For this one of the key choices so far has been to break my system config into smaller modules. 
+
+Example with i3:
+1. i3 is broken into an i3 module that includes all the packages I need when running i3. This keeps related packages together and makes it obvious they are grouped meaningfully, in this case as dependencies of i3 (Goal 1).
+2. The i3 config is only included if i3 is enabled. This means in the top-level config, I can flip i3 and all associated services/packages on and off easily (Goal 2). As a side note, I prefer to keep the `enable = true/false` in the top level `configuration.nix` so it's easy to get an overview of what is enabled. I also prefer using dot syntax `services.xserver.windowManager.i3.enable = true` so that it works nicely with line processing tools, but this is something I like doing in any language..
+3. If I don't need the i3 config, I simply disable it, but do not delete the code. The config may be later useful. Because I only include the packages when the enable flag is true, packages aren't built unnecessarily so I get to easily temporarily disable things (Goal 3) without adding cruft to the actual build.
+
 # Actual experience -- one command install on new machines
 
-## X1 Carbon 10th Gen
+The dream is one command to completely reconfigure your machine exactly how you like it.. I figured this section might be a good place to put my experiences and record TODOs.
 
+## X1 Carbon 10th Gen
 I recently was equipped with a new machine at work and had the chance to try rolling out my config to a new machine.
 
 Long story short is that the results were extremely satisfying.
