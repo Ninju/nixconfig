@@ -22,10 +22,11 @@ in
     config = rec {
       terminal = "${pkgs.kitty}/bin/kitty";
       modifier = "Mod1"; # Left Alt
+      menu = "${pkgs.dmenu}/bin/dmenu_run -l 20";
       keybindings = {
         "${modifier}+Return" = "exec ${terminal}";
         "${modifier}+Shift+q" = "kill";
-        "${modifier}+d" = "exec ${pkgs.dmenu}/bin/dmenu_run -l 20";
+        "${modifier}+d" = "exec ${menu}";
 
         "${modifier}+Left" = "focus left";
         "${modifier}+Down" = "focus down";
