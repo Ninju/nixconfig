@@ -103,6 +103,8 @@ in
         "${mediaKeys.brightness.up}" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set +20%";
         "${mediaKeys.brightness.down}" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 20%-";
 
+        "${mediaKeys.display}" = "exec ${pkgs.arandr}/bin/arandr";
+
         "${modifier}+Ctrl+m" = "exec ${pkgs.pavucontrol}/bin/pavucontrol";
       };
 
