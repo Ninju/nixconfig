@@ -1,4 +1,20 @@
 { config, lib, pkgs, ... }:
+let
+  mediaKeys = {
+    brightness = {
+      up = "XF86MonBrightnessUp";
+      down = "XF86MonBrightnessDown";
+    };
+
+    volume = {
+      up = "XF86AudioRaiseVolume";
+      down = "XF86AudioLowerVolume";
+      mute = "XF86AudioMute";
+    };
+
+    display = "XF86Display";
+  };
+in
 {
   xsession.windowManager.i3 = {
     enable = true;
@@ -77,15 +93,15 @@
         "${modifier}+r" = "mode resize";
         "${modifier}+Shift+z" = "exec ${pkgs.i3lock}/bin/i3lock -c 000000";
 
-        "XF86AudioMute" = "exec amixer sset 'Master' toggle";
-        "XF86AudioLowerVolume" = "exec amixer sset 'Master' 5%-";
-        "XF86AudioRaiseVolume" = "exec amixer sset 'Master' 5%+";
+        "${mediaKeys.volume.mute}" = "exec amixer sset 'Master' toggle";
+        "${mediaKeys.volume.down}" = "exec amixer sset 'Master' 5%-";
+        "${mediaKeys.volume.up}" = "exec amixer sset 'Master' 5%+";
 
-        "${modifier}+XF86MonBrightnessUp" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set +5%";
-        "${modifier}+XF86MonBrightnessDown" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 5%-";
+        "${modifier}+${mediaKeys.brightness.up}" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set +5%";
+        "${modifier}+${mediaKeys.brightness.down}" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 5%-";
 
-        "XF86MonBrightnessUp" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set +20%";
-        "XF86MonBrightnessDown" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 20%-";
+        "${mediaKeys.brightness.up}" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set +20%";
+        "${mediaKeys.brightness.down}" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 20%-";
 
         "${modifier}+Ctrl+m" = "exec ${pkgs.pavucontrol}/bin/pavucontrol";
       };
