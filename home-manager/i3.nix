@@ -19,6 +19,7 @@ let
 
   menus = {
     runApps = mkMenu "run";
+    switchWindows = mkMenu "window";
   };
 in
 {
@@ -33,6 +34,7 @@ in
         "${modifier}+Return" = "exec ${terminal}";
         "${modifier}+Shift+q" = "kill";
         "${modifier}+d" = "exec ${menus.runApps}";
+        "${modifier}+Shift+d" = "exec ${menus.switchWindows}";
 
         "${modifier}+Left" = "focus left";
         "${modifier}+Down" = "focus down";
