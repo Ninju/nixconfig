@@ -15,6 +15,8 @@
   services.awsvpnclient.enable = true;
   services.awsvpnclient.configFile = "/etc/awsvpnclient/rvu.ovpn";
 
+  virtualisation.docker.enable = true;
+
   # --- BOOT SETTINGS ---
   # Only show N most recent generations in the boot menu
   # (useful to prevent running out of disk space)
@@ -128,7 +130,7 @@
   users.users.alex = {
     isNormalUser = true;
     description = "Alex Watt";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
       firefox
       vim
