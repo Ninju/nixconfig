@@ -8,5 +8,7 @@ in
   home.packages = [
     pkgs.xclip
     pbcopy
+
+    pkgs.xorg.xev
   ];
 }
