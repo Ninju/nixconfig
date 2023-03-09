@@ -135,6 +135,15 @@ in
           "Return" = "mode default";
         };
       };
+
+      bars = [{
+        mode = "dock";
+        position = "top";
+        fonts = {
+          names = [ "Source Code Pro" "monospace" ];
+          size = 12.0;
+        };
+      }];
     };
   };
 }
