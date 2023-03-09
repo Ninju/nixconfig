@@ -5,11 +5,17 @@ let
   };
 in
 {
+
+  programs.chromium = {
+    enable = true;
+    extensions = [
+      "hdokiejnpimakedhajhdlcegeplioahd" # LastPassword
+    ];
+  };
+
   home.packages = [
     pkgs.xclip
     pbcopy
-
-    pkgs.chromium
 
     pkgs.xorg.xev
   ];
