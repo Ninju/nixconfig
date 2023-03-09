@@ -9,6 +9,8 @@ in
     pkgs.xclip
     pbcopy
 
+    pkgs.chromium
+
     pkgs.xorg.xev
   ];
 }
