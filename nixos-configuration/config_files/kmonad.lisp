@@ -24,7 +24,7 @@
   tab  q    w    f    p    g    j    l    u    y    ;    [    ]
   @ext a    r    s    t    d    h    n    e    i    o    '          ret
   lsft z    x    c    v    b    k    m    ,    .    /    rsft
-       lctl lmet lalt       spc           ralt prnt rctl  pgup up   pgdn
+       lctl lmet lalt       spc           lalt prnt rctl  pgup up   pgdn
                                                           lft  down rght
 )
 
@@ -34,7 +34,7 @@
   tab  q    w    f    p    g    j    l    u    y    ;    [    ]
   @ext a    r    s    t    d    h    n    e    i    o    '          ret
   lsft z    x    c    v    b    k    m    ,    .    /    rsft
-       lctl lmet lalt       spc           ralt prnt rctl  pgup up   pgdn
+       lctl lmet lalt       spc           lalt prnt rctl  pgup up   pgdn
                                                           lft  down rght
 )
 
