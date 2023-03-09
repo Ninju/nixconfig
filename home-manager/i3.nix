@@ -22,7 +22,7 @@ in
     config = rec {
       terminal = "${pkgs.kitty}/bin/kitty";
       modifier = "Mod1"; # Left Alt
-      menu = "${pkgs.dmenu}/bin/dmenu_run -l 20";
+      menu = "${pkgs.dmenu}/bin/dmenu_run -l 10 -fn 'Source Code Pro:pixelsize=18'";
       keybindings = {
         "${modifier}+Return" = "exec ${terminal}";
         "${modifier}+Shift+q" = "kill";
