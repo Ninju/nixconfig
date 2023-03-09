@@ -14,6 +14,12 @@ let
 
     display = "XF86Display";
   };
+
+  mkMenu = cmd: "${pkgs.rofi}/bin/rofi -show ${cmd} -theme solarized -l 10 -fn 'Source Code Pro:pixelsize=18'";
+
+  menus = {
+    runApps = mkMenu "run";
+  };
 in
 {
   xsession.windowManager.i3 = {
@@ -22,11 +28,11 @@ in
     config = rec {
       terminal = "${pkgs.kitty}/bin/kitty";
       modifier = "Mod1"; # Left Alt
-      menu = "${pkgs.dmenu}/bin/dmenu_run -l 10 -fn 'Source Code Pro:pixelsize=18'";
+      menu = menus.runApps;
       keybindings = {
         "${modifier}+Return" = "exec ${terminal}";
         "${modifier}+Shift+q" = "kill";
-        "${modifier}+d" = "exec ${menu}";
+        "${modifier}+d" = "exec ${menus.runApps}";
 
         "${modifier}+Left" = "focus left";
         "${modifier}+Down" = "focus down";
