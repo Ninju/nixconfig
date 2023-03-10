@@ -115,6 +115,7 @@ in
         "${mediaKeys.display}" = "exec ${pkgs.arandr}/bin/arandr";
 
         "${modifier}+Ctrl+m" = "exec ${pkgs.pavucontrol}/bin/pavucontrol";
+        "${modifier}+Shift+p" = "exec ${pkgs.rofi}/bin/rofi -show window -e \"$(date '+%A %W %Y %X')\"";
       };
 
       window = {
