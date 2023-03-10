@@ -104,7 +104,6 @@ in
         # "${modifier}+Shift+e" =
         #   "exec i3-nagbar -t warning -m 'Do you want to exit i3?' -b 'Yes' 'i3-msg exit'";
 
-        "${modifier}+r" = "mode resize";
         "${modifier}+Shift+z" = "exec ${pkgs.i3lock}/bin/i3lock -c 000000";
 
         "${mediaKeys.volume.mute}" = "exec amixer sset 'Master' toggle";
@@ -121,6 +120,8 @@ in
 
         "${modifier}+Ctrl+m" = "exec ${pkgs.pavucontrol}/bin/pavucontrol";
         "${modifier}+Shift+p" = "exec ${pkgs.rofi}/bin/rofi -show window -e \"$(date '+%A %W %Y %X')\"";
+
+        "${modifier}+r" = "mode resize";
         "${keys.super}+d" = "mode dmenu";
       };
 
