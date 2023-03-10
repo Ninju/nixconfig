@@ -1,25 +1,24 @@
 { config, lib, pkgs, ... }:
 let
-  mediaKeys = {
-    brightness = {
-      up = "XF86MonBrightnessUp";
-      down = "XF86MonBrightnessDown";
-    };
-
-    volume = {
-      up = "XF86AudioRaiseVolume";
-      down = "XF86AudioLowerVolume";
-      mute = "XF86AudioMute";
-    };
-
-    display = "XF86Display";
-  };
-
   mkMenu = cmd: "${pkgs.rofi}/bin/rofi -show ${cmd} -theme solarized -l 10 -fn 'Source Code Pro:pixelsize=18'";
 
   keys = {
     super = "Mod4";
-    media = mediaKeys;
+
+    media = {
+      brightness = {
+        up = "XF86MonBrightnessUp";
+        down = "XF86MonBrightnessDown";
+      };
+
+      volume = {
+        up = "XF86AudioRaiseVolume";
+        down = "XF86AudioLowerVolume";
+        mute = "XF86AudioMute";
+      };
+
+      display = "XF86Display";
+    };
   };
 
   menus = {
@@ -106,17 +105,17 @@ in
 
         "${modifier}+Shift+z" = "exec ${pkgs.i3lock}/bin/i3lock -c 000000";
 
-        "${mediaKeys.volume.mute}" = "exec amixer sset 'Master' toggle";
-        "${mediaKeys.volume.down}" = "exec amixer sset 'Master' 5%-";
-        "${mediaKeys.volume.up}" = "exec amixer sset 'Master' 5%+";
+        "${keys.media.volume.mute}" = "exec amixer sset 'Master' toggle";
+        "${keys.media.volume.down}" = "exec amixer sset 'Master' 5%-";
+        "${keys.media.volume.up}" = "exec amixer sset 'Master' 5%+";
 
-        "${modifier}+${mediaKeys.brightness.up}" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set +5%";
-        "${modifier}+${mediaKeys.brightness.down}" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 5%-";
+        "${modifier}+${keys.media.brightness.up}" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set +5%";
+        "${modifier}+${keys.media.brightness.down}" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 5%-";
 
-        "${mediaKeys.brightness.up}" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set +20%";
-        "${mediaKeys.brightness.down}" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 20%-";
+        "${keys.media.brightness.up}" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set +20%";
+        "${keys.media.brightness.down}" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 20%-";
 
-        "${mediaKeys.display}" = "exec ${pkgs.arandr}/bin/arandr";
+        "${keys.media.display}" = "exec ${pkgs.arandr}/bin/arandr";
 
         "${modifier}+Ctrl+m" = "exec ${pkgs.pavucontrol}/bin/pavucontrol";
         "${modifier}+Shift+p" = "exec ${pkgs.rofi}/bin/rofi -show window -e \"$(date '+%A %W %Y %X')\"";
