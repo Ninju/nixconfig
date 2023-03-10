@@ -17,6 +17,11 @@ let
 
   mkMenu = cmd: "${pkgs.rofi}/bin/rofi -show ${cmd} -theme solarized -l 10 -fn 'Source Code Pro:pixelsize=18'";
 
+  keys = {
+    super = "Mod4";
+    media = mediaKeys;
+  };
+
   menus = {
     runApps = mkMenu "run";
     switchWindows = mkMenu "window";
@@ -116,6 +121,7 @@ in
 
         "${modifier}+Ctrl+m" = "exec ${pkgs.pavucontrol}/bin/pavucontrol";
         "${modifier}+Shift+p" = "exec ${pkgs.rofi}/bin/rofi -show window -e \"$(date '+%A %W %Y %X')\"";
+        "${keys.super}+d" = "mode dmenu";
       };
 
       window = {
@@ -140,6 +146,16 @@ in
           "Down" = "resize grow height 10 px or 10 ppt";
           "Up" = "resize shrink height 10 px or 10 ppt";
           "Right" = "resize grow width 10 px or 10 ppt";
+          "Escape" = "mode default";
+          "Return" = "mode default";
+        };
+        dmenu = {
+          "c" = "exec ${pkgs.dm-colpick}/bin/dm-colpick";
+          "i" = "exec ${pkgs.dm-ip}/bin/dm-ip";
+          "k" = "exec ${pkgs.dm-kill}/bin/dm-kill";
+          "m" = "exec ${pkgs.dm-man}/bin/dm-man";
+          "w" = "exec ${pkgs.dm-websearch}/bin/dm-websearch";
+          "t" = "exec ${pkgs.dm-translate}/bin/dm-translate";
           "Escape" = "mode default";
           "Return" = "mode default";
         };
