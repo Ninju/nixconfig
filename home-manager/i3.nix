@@ -170,6 +170,10 @@ in
           size = 12.0;
         };
       }];
+
+      startup = [
+        { command = "nm-applet"; always = true; notification = true; }
+      ];
     };
   };
 }
