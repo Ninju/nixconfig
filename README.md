@@ -16,20 +16,6 @@ If you are new to nix, in a nutshell:
 * `./home-manager` - User level config
 * `./lib` - functions
 
-### Organisation
-Goals:
-
-1. Keep packages that are related together and make it obvious they are grouped in a meaningful way
-2. To be able to easily pick and choose the packages I want and need
-3. Easily switch to window managers I'm likely to use again, without having to dig through old git commits 
-
-For this one of the key choices so far has been to break my system config into smaller modules. 
-
-Example with i3:
-1. i3 is broken into an i3 module that includes all the packages I need when running i3. This keeps related packages together and makes it obvious they are grouped meaningfully, in this case as dependencies of i3 (Goal 1).
-2. The i3 config is only included if i3 is enabled. This means in the top-level config, I can flip i3 and all associated services/packages on and off easily (Goal 2). As a side note, I prefer to keep the `enable = true/false` in the top level `configuration.nix` so it's easy to get an overview of what is enabled. I also prefer using dot syntax `services.xserver.windowManager.i3.enable = true` so that it works nicely with line processing tools, but this is something I like doing in any language..
-3. If I don't need the i3 config, I simply disable it, but do not delete the code. The config may be later useful. Because I only include the packages when the enable flag is true, packages aren't built unnecessarily so I get to easily temporarily disable things (Goal 3) without adding cruft to the actual build.
-
 _Please note, but ignore, that I'm currently breaking all my own rules with my user-level system config, which enables/disables things by choosing to include or not include it in the `imports` directive._
 
 # Actual experience -- one command install on new machines
