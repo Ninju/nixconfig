@@ -14,13 +14,31 @@
 
   inputs.dmenu-scripts.url = "gitlab:Ninju1/dmscripts";
 
+  inputs.i3-agenda.url = "github:rosenpin/i3-agenda";
+  inputs.i3-agenda.flake = false;
+
+  inputs.mach-nix.url = "github:DavHau/mach-nix";
+
 # Pin nixpkgs to the version used to build the system
 # nix.registry.nixpkgs.flake = nixpkgs;
 
-outputs = { self, nixpkgs, nixos-hardware, uswitch-nixpkgs, home-manager, kmonad, nix-doom-emacs, dmenu-scripts }@inputs:
-let
-  system = "x86_64-linux";
-  pkgs = import nixpkgs { inherit system; };
+  outputs = {
+    self
+    , nixpkgs
+    , nixos-hardware
+    , uswitch-nixpkgs
+    , home-manager
+    , kmonad
+    , nix-doom-emacs
+    , dmenu-scripts
+    , i3-agenda
+    , mach-nix
+  }@inputs:
+    let
+      system = "x86_64-linux";
+      pkgs = import nixpkgs { inherit system; };
+
+      i3-agenda' = mach-nix.lib.${system}.buildPythonPackage "${i3-agenda}";
 
   mkNixosSystem = import ./lib/mkNixosSystem.nix {
     inherit (inputs) nixpkgs kmonad;
@@ -49,6 +67,7 @@ in
         modules = [
           { nixpkgs.overlays = [ (self: super: dmenu-scripts.packages.${system})
                                  (self: super: uswitch-nixpkgs.packages.${system})
+                                 (self: super: { i3-agenda = i3-agenda'; })
                                ]; }
           nix-doom-emacs.hmModule
           ./home-manager/home.nix

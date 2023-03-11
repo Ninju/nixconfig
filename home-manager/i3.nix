@@ -2,6 +2,16 @@
 let
   mkMenu = cmd: "${pkgs.rofi}/bin/rofi -show ${cmd} -theme solarized -l 10 -fn 'Source Code Pro:pixelsize=18'";
 
+  # i3-get-config = pkgs.runCommand "i3-get-config" {} ''
+  # ${pkgs.i3}/bin/i3-msg -t get_config
+  # '';
+
+  blocksConf = pkgs.writeText "i3blocks.conf" ''
+  [i3-agenda]
+  command=${pkgs.i3-agenda}/bin/i3-agenda -c ~/.google_credentials.json -ttl 60
+  interval=60
+  '';
+
   keys = {
     super = "Mod4";
 
@@ -27,6 +37,8 @@ let
   };
 in
 {
+  home.packages = [ pkgs.i3-agenda ];
+
   xsession.windowManager.i3 = {
     enable = true;
 
@@ -168,6 +180,7 @@ in
           names = [ "Source Code Pro" "monospace" ];
           size = 12.0;
         };
+        statusCommand = "${pkgs.i3blocks}/bin/i3blocks -c ${blocksConf}";
       }];
     };
   };
