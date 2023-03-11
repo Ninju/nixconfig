@@ -20,6 +20,7 @@ in
       dm-man
       dm-translate
       dm-websearch
+      dm-wifi
 
       feh
       fzf

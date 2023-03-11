@@ -154,8 +154,9 @@ in
           "i" = "exec ${pkgs.dm-ip}/bin/dm-ip";
           "k" = "exec ${pkgs.dm-kill}/bin/dm-kill";
           "m" = "exec ${pkgs.dm-man}/bin/dm-man";
-          "w" = "exec ${pkgs.dm-websearch}/bin/dm-websearch";
+          "s" = "exec ${pkgs.dm-websearch}/bin/dm-websearch";
           "t" = "exec ${pkgs.dm-translate}/bin/dm-translate";
+          "w" = "exec ${pkgs.dm-wifi}/bin/dm-wifi";
           "Escape" = "mode default";
           "Return" = "mode default";
         };
