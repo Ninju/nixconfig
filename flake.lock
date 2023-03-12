@@ -69,6 +69,22 @@
         "type": "github"
       }
     },
+    "dtos-backgrounds": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1628696441,
+        "narHash": "sha256-6Xx2Sqz6Ed07tVj9bJ+pNI2hYdjBLPQYSUDbfE1TKXk=",
+        "owner": "dwt1",
+        "repo": "wallpapers",
+        "rev": "e8e0b8e7a9077ddc6a8b94bf7dc118e3fae65772",
+        "type": "gitlab"
+      },
+      "original": {
+        "owner": "dwt1",
+        "repo": "wallpapers",
+        "type": "gitlab"
+      }
+    },
     "emacs-overlay": {
       "flake": false,
       "locked": {
@@ -549,6 +565,7 @@
     "root": {
       "inputs": {
         "dmenu-scripts": "dmenu-scripts",
+        "dtos-backgrounds": "dtos-backgrounds",
         "home-manager": "home-manager",
         "kmonad": "kmonad",
         "nix-doom-emacs": "nix-doom-emacs",

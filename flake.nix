@@ -14,10 +14,15 @@
 
   inputs.dmenu-scripts.url = "gitlab:Ninju1/dmscripts";
 
+  # I have not checked these wallpapers to make sure there is not anything "controversial", etc.
+  # Hopefully all backgrounds in the repo are safe-for-work
+  inputs.dtos-backgrounds.url = "gitlab:dwt1/wallpapers";
+  inputs.dtos-backgrounds.flake = false;
+
 # Pin nixpkgs to the version used to build the system
 # nix.registry.nixpkgs.flake = nixpkgs;
 
-outputs = { self, nixpkgs, nixos-hardware, uswitch-nixpkgs, home-manager, kmonad, nix-doom-emacs, dmenu-scripts }@inputs:
+outputs = { self, nixpkgs, nixos-hardware, uswitch-nixpkgs, home-manager, kmonad, nix-doom-emacs, dmenu-scripts, dtos-backgrounds }@inputs:
 let
   system = "x86_64-linux";
   pkgs = import nixpkgs { inherit system; };
@@ -44,7 +49,7 @@ in
         pkgs = nixpkgs.legacyPackages.${system};
 
         # Passed into modules as 'specialArgs'
-        extraSpecialArgs = {};
+        extraSpecialArgs = { inherit dtos-backgrounds; };
 
         modules = [
           { nixpkgs.overlays = [ (self: super: dmenu-scripts.packages.${system})

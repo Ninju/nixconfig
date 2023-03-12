@@ -1,4 +1,4 @@
-{ pkgs, config, lib, ... }:
+{ pkgs, config, lib, specialArgs, ... }:
 let
   username = "alex";
 in
@@ -7,6 +7,8 @@ in
   home.homeDirectory = "/home/${username}";
   home.stateVersion = "22.11"; # To figure this out you can comment out the line and see what version it expected.
   programs.home-manager.enable = true;
+
+  home.file.".dtos-backgrounds".source = "${specialArgs.dtos-backgrounds}";
 
   # https://nix.dev/anti-patterns/language#with-attrset-expression
   home.packages = builtins.attrValues {
