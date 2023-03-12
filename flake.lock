@@ -23,11 +23,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1678480635,
-        "narHash": "sha256-N6/FxgPeniW1EakjURyHI2YNKxmVQthKWG7In+tJCLE=",
+        "lastModified": 1678482432,
+        "narHash": "sha256-/M4/LmfFnYENKSiII/xejl86uo0pxG1hOmGVimXHWMk=",
         "owner": "Ninju1",
         "repo": "dmscripts",
-        "rev": "66f7596af66bd186b43b9ac7974a05ca3726a95c",
+        "rev": "86a988cafc63802d6d09bdb09daf365b68769a08",
         "type": "gitlab"
       },
       "original": {
