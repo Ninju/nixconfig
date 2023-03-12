@@ -21,6 +21,7 @@ in
       };
     };
 
+    services.picom.enable = true;
 
     environment.systemPackages = [
       pkgs.xmobar
@@ -45,7 +46,6 @@ in
       # Manage session
       pkgs.lxsession
 
-      # Network Manager (TODO: see dmenu variant!)
       pkgs.networkmanagerapplet
 
       # Compositing
@@ -53,6 +53,8 @@ in
 
       # Volume icon
       pkgs.volumeicon
+
+      pkgs.nitrogen
     ];
   };
 }
