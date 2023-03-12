@@ -187,6 +187,7 @@ in
       startup = [
         { command = "nm-applet"; always = true; notification = true; }
         { command = "${pkgs.mate.mate-media}/bin/mate-volume-control-status-icon"; always = true; notification = true; }
+        { command = "${pkgs.nitrogen} --restore"; always = true; }
       ];
     };
   };
