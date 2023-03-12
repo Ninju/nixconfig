@@ -43,9 +43,13 @@ in
       menu = menus.runApps;
       keybindings = {
         "${modifier}+Return" = "exec ${terminal}";
+        "${modifier}+q" = "kill";
         "${modifier}+Shift+q" = "kill";
+
         "${modifier}+d" = "exec ${menus.runApps}";
         "${modifier}+Shift+d" = "exec ${menus.switchWindows}";
+        "${modifier}+n" = "exec ${menus.runApps}";
+        "${modifier}+Shift+n" = "exec ${menus.switchWindows}";
 
         "${modifier}+Left" = "focus left";
         "${modifier}+Down" = "focus down";
