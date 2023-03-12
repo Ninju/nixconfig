@@ -32,6 +32,7 @@ in
     pkgs.mate.mate-media
 
     pkgs.i3-easyfocus
+    pkgs.killall
   ];
 
   xsession.windowManager.i3 = {
@@ -185,9 +186,12 @@ in
       }];
 
       startup = [
+        { command = "${pkgs.killall}/bin/killall conky"; always = true; }
         { command = "nm-applet"; always = true; notification = true; }
         { command = "${pkgs.mate.mate-media}/bin/mate-volume-control-status-icon"; always = true; notification = true; }
         { command = "${pkgs.nitrogen} --restore"; always = true; }
+        { command = "sleep 2 && ${pkgs.conky}/bin/conky -c ${./programs/config_files/doom-one.conkyrc}"; always = true; }
+
       ];
     };
   };
