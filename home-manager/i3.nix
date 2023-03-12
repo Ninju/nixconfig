@@ -27,6 +27,11 @@ let
   };
 in
 {
+  home.packages = [
+    # For volume control pane
+    pkgs.mate.mate-media
+  ];
+
   xsession.windowManager.i3 = {
     enable = true;
 
@@ -117,7 +122,7 @@ in
 
         "${keys.media.display}" = "exec ${pkgs.arandr}/bin/arandr";
 
-        "${modifier}+Ctrl+m" = "exec ${pkgs.pavucontrol}/bin/pavucontrol";
+        "${modifier}+Ctrl+m" = "exec ${pkgs.mate.mate-media}/bin/mate-volume-control";
         "${modifier}+Shift+p" = "exec ${pkgs.rofi}/bin/rofi -show window -e \"$(date '+%A %W %Y %X')\"";
 
         "${modifier}+r" = "mode resize";
@@ -129,7 +134,7 @@ in
         border = 1;
         hideEdgeBorders = "both";
         commands = [
-          { command = "floating enable"; criteria = { class = "Pavucontrol"; }; }
+          { command = "floating enable"; criteria = { class = "Sound Preferences"; }; }
           { command = "floating enable"; criteria = { class = "zoom"; }; }
         ];
       };
@@ -149,6 +154,7 @@ in
           "Escape" = "mode default";
           "Return" = "mode default";
         };
+
         dmenu = {
           "c" = "exec ${pkgs.dm-colpick}/bin/dm-colpick";
           "i" = "exec ${pkgs.dm-ip}/bin/dm-ip";
@@ -173,6 +179,7 @@ in
 
       startup = [
         { command = "nm-applet"; always = true; notification = true; }
+        { command = "${pkgs.mate.mate-media}/bin/mate-volume-control-status-icon"; always = true; notification = true; }
       ];
     };
   };
