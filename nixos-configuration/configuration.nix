@@ -17,6 +17,10 @@
 
   virtualisation.docker.enable = true;
 
+  # --- BLUETOOTH SETTINGS
+  services.blueman.enable = true;
+  hardware.bluetooth.enable = true;
+
   # --- BOOT SETTINGS ---
   # Only show N most recent generations in the boot menu
   # (useful to prevent running out of disk space)
