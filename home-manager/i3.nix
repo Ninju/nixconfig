@@ -30,6 +30,8 @@ in
   home.packages = [
     # For volume control pane
     pkgs.mate.mate-media
+
+    pkgs.i3-easyfocus
   ];
 
   xsession.windowManager.i3 = {
@@ -63,7 +65,8 @@ in
         "${modifier}+w" = "layout tabbed";
 
         "${modifier}+Shift+space" = "floating toggle";
-        "${modifier}+space" = "focus mode_toggle";
+        # "${modifier}+space" = "focus mode_toggle";
+        "${modifier}+space" = "exec ${pkgs.i3-easyfocus}/bin/i3-easyfocus";
 
         "${modifier}+a" = "focus parent";
 
