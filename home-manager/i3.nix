@@ -5,6 +5,8 @@ let
   keys = {
     super = "Mod4";
 
+    print = "Print";
+
     media = {
       brightness = {
         up = "XF86MonBrightnessUp";
@@ -33,6 +35,7 @@ in
 
     pkgs.i3-easyfocus
     pkgs.killall
+    pkgs.flameshot
   ];
 
   xsession.windowManager.i3 = {
@@ -117,6 +120,9 @@ in
         #   "exec i3-nagbar -t warning -m 'Do you want to exit i3?' -b 'Yes' 'i3-msg exit'";
 
         "${modifier}+Shift+z" = "exec ${pkgs.i3lock}/bin/i3lock -c 000000";
+
+        "Shift+${keys.print}" = "exec ${pkgs.flameshot}/bin/flameshot gui";
+        "Shift_R+${keys.print}" = "exec ${pkgs.flameshot}/bin/flameshot gui";
 
         "${keys.media.volume.mute}" = "exec amixer sset 'Master' toggle";
         "${keys.media.volume.down}" = "exec amixer sset 'Master' 5%-";
