@@ -124,6 +124,7 @@ in
         #   "exec i3-nagbar -t warning -m 'Do you want to exit i3?' -b 'Yes' 'i3-msg exit'";
 
         "${modifier}+Shift+z" = "exec ${pkgs.i3lock}/bin/i3lock -c 000000";
+        "${modifier}+Shift+x" = "mode lock";
 
         "Shift+${keys.print}" = "exec ${pkgs.flameshot}/bin/flameshot gui";
         "Shift_R+${keys.print}" = "exec ${pkgs.flameshot}/bin/flameshot gui";
@@ -182,6 +183,17 @@ in
           "s" = "exec ${pkgs.dm-websearch}/bin/dm-websearch";
           "t" = "exec ${pkgs.dm-translate}/bin/dm-translate";
           "w" = "exec ${pkgs.dm-wifi}/bin/dm-wifi";
+          "Escape" = "mode default";
+          "Return" = "mode default";
+        };
+
+        lock = {
+          "z" = "exec ${pkgs.xlockmore}/bin/xlock -mode random";
+          "x" = "exec ${pkgs.xlockmore}/bin/xlock -mode matrix";
+          "c" = "exec ${pkgs.xlockmore}/bin/xlock -mode bomb -count 60";
+          "b" = "exec ${pkgs.xlockmore}/bin/xlock -mode bomb -count 60";
+          "s" = "exec ${pkgs.xlockmore}/bin/xlock -mode space";
+          "m" = "exec ${pkgs.xlockmore}/bin/xlock -mode maze";
           "Escape" = "mode default";
           "Return" = "mode default";
         };
