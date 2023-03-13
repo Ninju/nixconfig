@@ -35,7 +35,11 @@ in
 
     pkgs.i3-easyfocus
     pkgs.killall
+
+    pkgs.nitrogen
+    pkgs.brightnessctl
     pkgs.flameshot
+    pkgs.blueman
   ];
 
   xsession.windowManager.i3 = {
