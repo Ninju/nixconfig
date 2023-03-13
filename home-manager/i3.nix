@@ -144,6 +144,7 @@ in
         commands = [
           { command = "floating enable"; criteria = { class = "Sound Preferences"; }; }
           { command = "floating enable"; criteria = { class = "zoom"; }; }
+          { command = "floating enable"; criteria = { class = "blueman-applet"; }; }
         ];
       };
 
@@ -188,10 +189,10 @@ in
       startup = [
         { command = "${pkgs.killall}/bin/killall conky"; always = true; }
         { command = "nm-applet"; always = true; notification = true; }
+        { command = "${pkgs.blueman}/bin/blueman-applet"; always = true; notification = true; }
         { command = "${pkgs.mate.mate-media}/bin/mate-volume-control-status-icon"; always = true; notification = true; }
         { command = "${pkgs.nitrogen} --restore"; always = true; }
         { command = "sleep 2 && ${pkgs.conky}/bin/conky -c ${./programs/config_files/doom-one.conkyrc}"; always = true; }
-
       ];
     };
   };
