@@ -171,6 +171,13 @@ in
           "Down" = "resize grow height 10 px or 10 ppt";
           "Up" = "resize shrink height 10 px or 10 ppt";
           "Right" = "resize grow width 10 px or 10 ppt";
+
+          "Shift+Left" = "resize shrink width 50 px or 50 ppt";
+          "Shift+Down" = "resize grow height 50 px or 50 ppt";
+          "Shift+Up" = "resize shrink height 50 px or 50 ppt";
+          "Shift+Right" = "resize grow width 50 px or 50 ppt";
+
+          "Space" = "mode default";
           "Escape" = "mode default";
           "Return" = "mode default";
         };
