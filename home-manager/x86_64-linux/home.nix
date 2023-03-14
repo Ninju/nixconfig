@@ -13,10 +13,13 @@ in
     ];
   };
 
+  services.autorandr.enable = true;
+
   home.packages = [
     pkgs.xclip
     pbcopy
 
     pkgs.xorg.xev
+    pkgs.autorandr
   ];
 }
