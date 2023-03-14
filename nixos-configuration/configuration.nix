@@ -9,6 +9,7 @@
     ./xmonad.nix
     ./i3.nix
     ./kmonad.nix
+    ./gpg.nix
   ];
 
   # --- WORK SETTINGS ---
