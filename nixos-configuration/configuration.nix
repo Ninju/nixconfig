@@ -76,6 +76,7 @@
   nixpkgs.config.allowUnfree = true;
 
 
+  # --- SSH ---
   programs.ssh.startAgent = true;
 
   # --- NETWORK SETTINGS
