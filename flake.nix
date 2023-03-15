@@ -19,13 +19,38 @@
   inputs.dtos-backgrounds.url = "gitlab:dwt1/wallpapers";
   inputs.dtos-backgrounds.flake = false;
 
+  inputs.i3-layouts.url = "github:eliep/i3-layouts";
+  inputs.i3-layouts.flake = false;
+
+  inputs.mach-nix.url = "github:DavHau/mach-nix";
+
 # Pin nixpkgs to the version used to build the system
 # nix.registry.nixpkgs.flake = nixpkgs;
 
-outputs = { self, nixpkgs, nixos-hardware, uswitch-nixpkgs, home-manager, kmonad, nix-doom-emacs, dmenu-scripts, dtos-backgrounds }@inputs:
+outputs = {
+  self
+ , nixpkgs
+ , nixos-hardware
+ , uswitch-nixpkgs
+ , home-manager
+ , kmonad
+ , nix-doom-emacs
+ , dmenu-scripts
+ , dtos-backgrounds
+ , i3-layouts
+ , mach-nix
+}@inputs:
 let
   system = "x86_64-linux";
-  pkgs = import nixpkgs { inherit system; };
+  pkgs = import nixpkgs { inherit system;
+                          overlays = [
+                            (self: super: dmenu-scripts.packages.${system})
+                            (self: super: uswitch-nixpkgs.packages.${system})
+                            (self: super: {
+                              i3-layouts = mach-nix.lib.${system}.buildPythonPackage "${i3-layouts}";
+                            })
+                          ];
+                        };
 
   mkNixosSystem = import ./lib/mkNixosSystem.nix {
     inherit (inputs) nixpkgs kmonad;
@@ -46,15 +71,12 @@ in
   {
     homeConfigurations = {
       "alex" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.${system};
+        inherit pkgs;
 
         # Passed into modules as 'specialArgs'
         extraSpecialArgs = { inherit dtos-backgrounds; };
 
         modules = [
-          { nixpkgs.overlays = [ (self: super: dmenu-scripts.packages.${system})
-                                 (self: super: uswitch-nixpkgs.packages.${system})
-                               ]; }
           nix-doom-emacs.hmModule
           ./home-manager/home.nix
           ./home-manager/${system}/home.nix

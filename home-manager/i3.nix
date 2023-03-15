@@ -34,6 +34,8 @@ in
     pkgs.mate.mate-media
 
     pkgs.i3-easyfocus
+    pkgs.i3-layouts
+
     pkgs.killall
 
     pkgs.nitrogen
@@ -64,10 +66,10 @@ in
         "${modifier}+Up" = "focus up";
         "${modifier}+Right" = "focus right";
 
-        "${modifier}+Shift+Left" = "move left";
-        "${modifier}+Shift+Down" = "move down";
-        "${modifier}+Shift+Up" = "move up";
-        "${modifier}+Shift+Right" = "move right";
+        "${modifier}+Shift+Left" = "exec ${pkgs.i3-layouts}/bin/i3l move left";
+        "${modifier}+Shift+Down" = "exec ${pkgs.i3-layouts}/bin/i3l move down";
+        "${modifier}+Shift+Up" = "exec ${pkgs.i3-layouts}/bin/i3l move up";
+        "${modifier}+Shift+Right" = "exec ${pkgs.i3-layouts}/bin/i3l move right";
 
         "${modifier}+h" = "split h";
         "${modifier}+v" = "split v";
@@ -82,7 +84,7 @@ in
 
         "${modifier}+a" = "focus parent";
 
-        "${modifier}+Shift+minus" = "move scratchpad";
+        "${modifier}+Shift+minus" = "exec ${pkgs.i3-layouts}/bin/i3l move scratchpad";
         "${modifier}+minus" = "scratchpad show";
 
         "${modifier}+1" = "workspace number 1";
@@ -96,26 +98,16 @@ in
         "${modifier}+9" = "workspace number 9";
         "${modifier}+0" = "workspace number 10";
 
-        "${modifier}+Shift+1" =
-          "move container to workspace number 1";
-        "${modifier}+Shift+2" =
-          "move container to workspace number 2";
-        "${modifier}+Shift+3" =
-          "move container to workspace number 3";
-        "${modifier}+Shift+4" =
-          "move container to workspace number 4";
-        "${modifier}+Shift+5" =
-          "move container to workspace number 5";
-        "${modifier}+Shift+6" =
-          "move container to workspace number 6";
-        "${modifier}+Shift+7" =
-          "move container to workspace number 7";
-        "${modifier}+Shift+8" =
-          "move container to workspace number 8";
-        "${modifier}+Shift+9" =
-          "move container to workspace number 9";
-        "${modifier}+Shift+0" =
-          "move container to workspace number 10";
+        "${modifier}+Shift+1" = "exec ${pkgs.i3-layouts}/bin/i3l move container to workspace number 1";
+        "${modifier}+Shift+2" = "exec ${pkgs.i3-layouts}/bin/i3l move container to workspace number 2";
+        "${modifier}+Shift+3" = "exec ${pkgs.i3-layouts}/bin/i3l move container to workspace number 3";
+        "${modifier}+Shift+4" = "exec ${pkgs.i3-layouts}/bin/i3l move container to workspace number 4";
+        "${modifier}+Shift+5" = "exec ${pkgs.i3-layouts}/bin/i3l move container to workspace number 5";
+        "${modifier}+Shift+6" = "exec ${pkgs.i3-layouts}/bin/i3l move container to workspace number 6";
+        "${modifier}+Shift+7" = "exec ${pkgs.i3-layouts}/bin/i3l move container to workspace number 7";
+        "${modifier}+Shift+8" = "exec ${pkgs.i3-layouts}/bin/i3l move container to workspace number 8";
+        "${modifier}+Shift+9" = "exec ${pkgs.i3-layouts}/bin/i3l move container to workspace number 9";
+        "${modifier}+Shift+0" = "exec ${pkgs.i3-layouts}/bin/i3l move container to workspace number 10";
 
         "${modifier}+Shift+c" = "reload";
         "${modifier}+Shift+r" = "restart";
@@ -217,6 +209,7 @@ in
       }];
 
       startup = [
+        { command = "${pkgs.i3-layouts}/bin/i3-layouts"; always = true; notification = true; }
         { command = "${pkgs.killall}/bin/killall conky"; always = true; }
         { command = "nm-applet"; always = true; notification = true; }
         { command = "${pkgs.blueman}/bin/blueman-applet"; always = true; notification = true; }
@@ -225,5 +218,18 @@ in
         { command = "sleep 2 && ${pkgs.conky}/bin/conky -c ${./programs/config_files/doom-one.conkyrc}"; always = true; }
       ];
     };
+
+    extraConfig = ''
+    set $i3l vstack to workspace 1
+    set $i3l vstack to workspace 2
+    set $i3l vstack to workspace 3
+    set $i3l vstack to workspace 4
+    set $i3l vstack to workspace 5
+    set $i3l vstack to workspace 6
+    set $i3l vstack to workspace 7
+    set $i3l vstack to workspace 8
+    set $i3l vstack to workspace 9
+    set $i3l vstack to workspace 10
+    '';
   };
 }
