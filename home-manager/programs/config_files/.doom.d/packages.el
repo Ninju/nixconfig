@@ -70,6 +70,7 @@
 (package! magit-section)
 (package! kubernetes)
 (package! cue-mode)
+(package! restclient)
 
 (after! simple-httpd
   (setq httpd-port 7070)
