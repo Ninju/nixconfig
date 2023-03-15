@@ -33,6 +33,8 @@ in
       wget
       yq
 
+      ranger
+
       u
       kubectl
     ; };
