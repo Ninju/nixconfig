@@ -44,13 +44,13 @@ in
   services.dunst.enable = true;
 
   imports = [
-    ./programs/chromium.nix
-    ./programs/neovim.nix
     ./programs/bash.nix
-    ./programs/git.nix
-    ./programs/kitty.nix
+    ./programs/chromium.nix
     ./programs/doom_emacs.nix
     ./programs/fzf.nix
+    ./programs/git.nix
+    ./programs/kitty.nix
+    ./programs/neovim.nix
 
     ./i3.nix
   ];
