@@ -221,7 +221,7 @@ in
         { command = "nm-applet"; always = true; notification = true; }
         { command = "${pkgs.blueman}/bin/blueman-applet"; always = true; notification = true; }
         { command = "${pkgs.mate.mate-media}/bin/mate-volume-control-status-icon"; always = true; notification = true; }
-        { command = "${pkgs.nitrogen} --restore"; always = true; }
+        { command = "${pkgs.nitrogen}/bin/nitrogen --restore"; always = true; }
         { command = "sleep 2 && ${pkgs.conky}/bin/conky -c ${./programs/config_files/doom-one.conkyrc}"; always = true; }
       ];
     };
