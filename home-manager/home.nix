@@ -42,6 +42,7 @@ in
   services.dunst.enable = true;
 
   imports = [
+    ./programs/chromium.nix
     ./programs/neovim.nix
     ./programs/bash.nix
     ./programs/git.nix

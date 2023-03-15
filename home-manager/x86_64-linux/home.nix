@@ -5,14 +5,6 @@ let
   };
 in
 {
-
-  programs.chromium = {
-    enable = true;
-    extensions = [
-      "hdokiejnpimakedhajhdlcegeplioahd" # LastPassword
-    ];
-  };
-
   services.autorandr.enable = true;
 
   home.packages = [
