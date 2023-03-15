@@ -128,8 +128,8 @@ in
         "${keys.media.brightness.up}" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set +20%";
         "${keys.media.brightness.down}" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 20%-";
 
-        "${keys.media.display}" = "exec ${pkgs.arandr}/bin/arandr";
-        "Shift+${keys.media.display}" = "exec ${pkgs.autorandr}/bin/autorandr --change";
+        "${keys.media.display}" = "exec ${pkgs.autorandr}/bin/autorandr --change";
+        "Shift+${keys.media.display}" = "exec ${pkgs.arandr}/bin/arandr";
 
         "${modifier}+Ctrl+m" = "exec ${pkgs.mate.mate-media}/bin/mate-volume-control";
         "${modifier}+Shift+p" = "exec ${pkgs.rofi}/bin/rofi -show window -e \"$(date '+%A %W %Y %X')\"";
