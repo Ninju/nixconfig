@@ -47,6 +47,7 @@ in
     ./programs/git.nix
     ./programs/kitty.nix
     ./programs/doom_emacs.nix
+    ./programs/fzf.nix
 
     ./i3.nix
   ];
