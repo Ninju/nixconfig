@@ -5,10 +5,10 @@
     enable = true;
 
     defaultOptions = [
-      "--height 60%"
+      "--height 90%"
+      "--min-height 10"
       "--reverse"
-      "--padding 0,37"
-      "--preview-window=down:50%"
+      "--preview-window=down:75%"
     ];
 
     changeDirWidgetCommand = "find /home/alex/src -maxdepth 3 -type d";
