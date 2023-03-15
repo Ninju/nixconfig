@@ -115,9 +115,6 @@ in
         # "${modifier}+Shift+e" =
         #   "exec i3-nagbar -t warning -m 'Do you want to exit i3?' -b 'Yes' 'i3-msg exit'";
 
-        "${modifier}+Shift+z" = "exec ${pkgs.i3lock}/bin/i3lock -c 000000";
-        "${modifier}+Shift+x" = "mode lock";
-
         "Shift+${keys.print}" = "exec ${pkgs.flameshot}/bin/flameshot gui";
         "Shift_R+${keys.print}" = "exec ${pkgs.flameshot}/bin/flameshot gui";
 
@@ -137,8 +134,12 @@ in
         "${modifier}+Ctrl+m" = "exec ${pkgs.mate.mate-media}/bin/mate-volume-control";
         "${modifier}+Shift+p" = "exec ${pkgs.rofi}/bin/rofi -show window -e \"$(date '+%A %W %Y %X')\"";
 
-        "${modifier}+r" = "mode resize";
-        "${keys.super}+d" = "mode dmenu";
+        "${modifier}+Shift+z" = "exec ${pkgs.i3lock}/bin/i3lock -c 000000";
+
+        "${modifier}+Shift+x" = "mode lock";
+        "${modifier}+r"       = "mode resize";
+        "${keys.super}+d"     = "mode dmenu";
+        "${keys.super}+l"     = "mode layouts";
       };
 
       window = {
@@ -194,6 +195,18 @@ in
           "b" = "exec ${pkgs.xlockmore}/bin/xlock -mode bomb -count 60";
           "s" = "exec ${pkgs.xlockmore}/bin/xlock -mode space";
           "m" = "exec ${pkgs.xlockmore}/bin/xlock -mode maze";
+          "Escape" = "mode default";
+          "Return" = "mode default";
+        };
+
+        layouts = {
+          "v" = "exec ${pkgs.i3-layouts}/bin/i3l vstack";
+          "h" = "exec ${pkgs.i3-layouts}/bin/i3l hstack";
+          "s" = "exec ${pkgs.i3-layouts}/bin/i3l spiral";
+          "c" = "exec ${pkgs.i3-layouts}/bin/i3l companion";
+          "a" = "exec ${pkgs.i3-layouts}/bin/i3l autosplit";
+          "2" = "exec ${pkgs.i3-layouts}/bin/i3l 2columns";
+          "3" = "exec ${pkgs.i3-layouts}/bin/i3l 3columns";
           "Escape" = "mode default";
           "Return" = "mode default";
         };
