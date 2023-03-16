@@ -10,8 +10,9 @@ in
     environment.pathsToLink = [ "/libexec" ];
 
     services.xserver.windowManager.i3 = {
+      package = pkgs.i3-gaps;
+
       extraPackages = with pkgs; [
-        i3-gaps
         i3status
         i3blocks
         lxappearance

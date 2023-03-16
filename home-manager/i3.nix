@@ -36,7 +36,6 @@ in
     pkgs.i3-easyfocus
     pkgs.i3-layouts
     pkgs.i3-workspace-groups
-    pkgs.i3-gaps
     pkgs.i3status
     pkgs.i3blocks
 
@@ -54,6 +53,8 @@ in
 
   xsession.windowManager.i3 = {
     enable = true;
+
+    package = pkgs.i3-gaps;
 
     config = rec {
       terminal = "${pkgs.kitty}/bin/kitty";
@@ -150,9 +151,14 @@ in
         "${keys.super}+l"     = "mode layouts";
       };
 
+      gaps = {
+        inner = 10;
+        outer = 10;
+      };
+
       window = {
         titlebar = false;
-        border = 1;
+        border = 0;
         hideEdgeBorders = "both";
         commands = [
           { command = "floating enable"; criteria = { class = "Sound Preferences"; }; }
