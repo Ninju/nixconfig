@@ -22,6 +22,9 @@
   inputs.i3-layouts.url = "github:eliep/i3-layouts";
   inputs.i3-layouts.flake = false;
 
+  inputs.i3-workspace-groups.url = "github:infokiller/i3-workspace-groups";
+  inputs.i3-workspace-groups.flake = false;
+
   inputs.mach-nix.url = "github:DavHau/mach-nix";
 
   inputs.kitty-themes.url = "github:dexpota/kitty-themes";
@@ -41,6 +44,7 @@ outputs = {
  , dmenu-scripts
  , dtos-backgrounds
  , i3-layouts
+ , i3-workspace-groups
  , mach-nix
  , kitty-themes
 }@inputs:
@@ -51,9 +55,36 @@ let
                           overlays = [
                             (self: super: dmenu-scripts.packages.${system})
                             (self: super: uswitch-nixpkgs.packages.${system})
-                            (self: super: {
-                              i3-layouts = mach-nix.lib.${system}.buildPythonPackage "${i3-layouts}";
-                            })
+                            (self: super:
+                              let
+                                i3-workspace-groups-base = mach-nix.lib.${system}.buildPythonPackage {
+                                  src = i3-workspace-groups;
+                                };
+                              in
+                                {
+                                  i3-layouts = mach-nix.lib.${system}.buildPythonPackage "${i3-layouts}";
+                                  i3-workspace-groups = pkgs.stdenv.mkDerivation {
+                                    name = "i3-workspace-groups-wrapped";
+                                    src = i3-workspace-groups-base;
+                                    buildInputs = [ self.makeWrapper self.coreutils ];
+                                    installPhase = ''
+                                      mkdir -p $out
+                                      cp -R $src/bin $out/bin
+                                    '';
+                                    postFixup = ''
+                                      for i in `ls $out/bin`; do
+                                        wrapProgram $out/bin/$i \
+                                          --set PATH ${pkgs.lib.makeBinPath [
+                                            self.rofi
+                                            self.coreutils
+                                            self.gnugrep
+                                            self.gnused
+                                            "$out/bin"
+                                          ]}
+                                      done
+                                    '';
+                                  };
+                                })
                           ];
                         };
 

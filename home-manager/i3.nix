@@ -35,6 +35,7 @@ in
 
     pkgs.i3-easyfocus
     pkgs.i3-layouts
+    pkgs.i3-workspace-groups
 
     pkgs.killall
 
@@ -223,6 +224,7 @@ in
 
       startup = [
         { command = "${pkgs.i3-layouts}/bin/i3-layouts"; always = true; notification = true; }
+        { command = "${pkgs.i3-workspace-groups}/bin/i3-workspace-groups"; always = true; notification = true; }
         { command = "${pkgs.killall}/bin/killall conky"; always = true; }
         { command = "nm-applet"; always = true; notification = true; }
         { command = "${pkgs.blueman}/bin/blueman-applet"; always = true; notification = true; }

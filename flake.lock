@@ -298,6 +298,22 @@
         "type": "github"
       }
     },
+    "i3-workspace-groups": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1678785130,
+        "narHash": "sha256-b+c87RHkVBTBowSrwiEjPaNRoMK6a0FmJgKPbbjXWPQ=",
+        "owner": "infokiller",
+        "repo": "i3-workspace-groups",
+        "rev": "02b51f0045cd38b24878a01a187f69132c8f9bbc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "infokiller",
+        "repo": "i3-workspace-groups",
+        "type": "github"
+      }
+    },
     "kitty-themes": {
       "flake": false,
       "locked": {
@@ -666,6 +682,7 @@
         "dtos-backgrounds": "dtos-backgrounds",
         "home-manager": "home-manager",
         "i3-layouts": "i3-layouts",
+        "i3-workspace-groups": "i3-workspace-groups",
         "kitty-themes": "kitty-themes",
         "kmonad": "kmonad",
         "mach-nix": "mach-nix",
