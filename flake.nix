@@ -74,7 +74,7 @@ let
                                     postFixup = ''
                                       for i in `ls $out/bin`; do
                                         wrapProgram $out/bin/$i \
-                                          --set PATH ${pkgs.lib.makeBinPath [
+                                          --set PATH ${final.lib.makeBinPath [
                                             final.rofi
                                             final.coreutils
                                             final.gnugrep
