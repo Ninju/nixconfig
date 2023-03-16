@@ -7,7 +7,10 @@
 {
   overlay = (final: prev:
     {
-      i3-layouts = buildPythonPackage { src = i3-layouts; };
+      i3-layouts = import ../pkgs/i3-layouts.nix {
+        inherit buildPythonPackage;
+        src = i3-layouts;
+      };
 
       i3-workspace-groups = final.stdenv.mkDerivation {
         name = "i3-workspace-groups-wrapped";
