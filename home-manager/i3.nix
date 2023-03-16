@@ -36,6 +36,13 @@ in
     pkgs.i3-easyfocus
     pkgs.i3-layouts
     pkgs.i3-workspace-groups
+    pkgs.i3-gaps
+    pkgs.i3status
+    pkgs.i3blocks
+
+    pkgs.arandr
+
+    pkgs.lxappearance
 
     pkgs.killall
 
