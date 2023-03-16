@@ -7,7 +7,7 @@
 {
   overlay = (final: prev:
     {
-      i3-layouts = import ../pkgs/i3-layouts.nix {
+      i3-layouts = final.callPackage ../pkgs/i3-layouts.nix {
         inherit buildPythonPackage;
         src = i3-layouts;
       };
