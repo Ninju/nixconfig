@@ -56,12 +56,15 @@ let
       inherit i3-workspace-groups i3-layouts;
     };
 
+  x86_64-linux-overlays = import ./overlays/x86_64-linux-overlays.nix {};
+
   system = "x86_64-linux";
   pkgs = import nixpkgs { inherit system;
                           overlays = [
                             (final: prev: dmenu-scripts.packages.${system})
                             (final: prev: uswitch-nixpkgs.packages.${system})
                             i3-overlays.overlay
+                            x86_64-linux-overlays.overlay
                           ];
                         };
 
