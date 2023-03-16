@@ -746,18 +746,17 @@
         "nixpkgs": "nixpkgs_7"
       },
       "locked": {
-        "lastModified": 1678364269,
+        "lastModified": 1678889302,
         "narHash": "sha256-yG7sWUBxqzvzOfpSKruU6LV0rKTgm2FfoEjOTh0NvEQ=",
-        "ref": "aw-flakify-and-add-aws-vpn-client",
-        "rev": "3057b72cc4a731d94b96b88e84ea184f07ccd98e",
-        "revCount": 37,
+        "ref": "master",
+        "rev": "e596f31ec6b21f6972742a0d383771ad2f10f747",
+        "revCount": 38,
         "type": "git",
-        "url": "ssh://git@github.com/Ninju/uswitch-nixpkgs"
+        "url": "ssh://git@github.com/uswitch/nixpkgs"
       },
       "original": {
-        "ref": "aw-flakify-and-add-aws-vpn-client",
         "type": "git",
-        "url": "ssh://git@github.com/Ninju/uswitch-nixpkgs"
+        "url": "ssh://git@github.com/uswitch/nixpkgs"
       }
     },
     "utils": {

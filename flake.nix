@@ -2,7 +2,7 @@
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.11";
   inputs.nixos-hardware.url = "github:NixOS/nixos-hardware";
 
-  inputs.uswitch-nixpkgs.url = "git+ssh://git@github.com/Ninju/uswitch-nixpkgs?ref=aw-flakify-and-add-aws-vpn-client";
+  inputs.uswitch-nixpkgs.url = "git+ssh://git@github.com/uswitch/nixpkgs";
 
   inputs.home-manager = {
     url = "github:nix-community/home-manager";
