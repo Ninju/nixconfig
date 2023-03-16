@@ -24,6 +24,9 @@
 
   inputs.mach-nix.url = "github:DavHau/mach-nix";
 
+  inputs.kitty-themes.url = "github:dexpota/kitty-themes";
+  inputs.kitty-themes.flake = false;
+
 # Pin nixpkgs to the version used to build the system
 # nix.registry.nixpkgs.flake = nixpkgs;
 
@@ -39,7 +42,9 @@ outputs = {
  , dtos-backgrounds
  , i3-layouts
  , mach-nix
+ , kitty-themes
 }@inputs:
+
 let
   system = "x86_64-linux";
   pkgs = import nixpkgs { inherit system;
@@ -74,7 +79,7 @@ in
         inherit pkgs;
 
         # Passed into modules as 'specialArgs'
-        extraSpecialArgs = { inherit dtos-backgrounds; };
+        extraSpecialArgs = { inherit dtos-backgrounds kitty-themes; };
 
         modules = [
           nix-doom-emacs.hmModule
