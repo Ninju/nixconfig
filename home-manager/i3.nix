@@ -124,8 +124,11 @@ in
         # "${modifier}+Shift+e" =
         #   "exec i3-nagbar -t warning -m 'Do you want to exit i3?' -b 'Yes' 'i3-msg exit'";
 
-        "Shift+${keys.print}" = "exec ${pkgs.flameshot}/bin/flameshot gui";
-        "Shift_R+${keys.print}" = "exec ${pkgs.flameshot}/bin/flameshot gui";
+        "${keys.print}" = "exec ${pkgs.flameshot}/bin/flameshot gui";
+        "Shift+${keys.print}" = "exec ${pkgs.flameshot}/bin/flameshot screen";
+        "Shift_R+${keys.print}" = "exec ${pkgs.flameshot}/bin/flameshot screen";
+        "Ctrl+Shift+${keys.print}" = "exec ${pkgs.flameshot}/bin/flameshot full";
+        "Ctrl+Shift_R+${keys.print}" = "exec ${pkgs.flameshot}/bin/flameshot full";
 
         "${keys.media.volume.mute}" = "exec amixer sset 'Master' toggle";
         "${keys.media.volume.down}" = "exec amixer sset 'Master' 5%-";
