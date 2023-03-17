@@ -37,6 +37,8 @@ in
 
       u
       kubectl
+
+      xpad
     ; };
 
   programs.git.userEmail = "alex.watt@rvu.co.uk";

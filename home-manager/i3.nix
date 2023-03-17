@@ -93,7 +93,7 @@ in
 
         "${modifier}+a" = "focus parent";
 
-        "${modifier}+Shift+minus" = "exec ${pkgs.i3-layouts}/bin/i3l move scratchpad";
+        "${modifier}+Shift+minus" = "move scratchpad";
         "${modifier}+minus" = "scratchpad show";
 
         "${modifier}+1" = "workspace number 1";
@@ -167,6 +167,7 @@ in
           { command = "floating enable"; criteria = { class = "Sound Preferences"; }; }
           { command = "floating enable"; criteria = { class = "zoom"; }; }
           { command = "floating enable"; criteria = { class = "blueman-applet"; }; }
+          { command = "floating enable sticky enable"; criteria = { class = "xpad"; }; }
         ];
       };
 
