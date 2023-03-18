@@ -116,6 +116,13 @@ in
       ];
     };
 
+    nixosConfigurations.aw-t490 = mkNixosSystem {
+      extraModules = [
+        nixos-hardware.nixosModules.lenovo-thinkpad-t490
+        ./nixos-configuration/aw-t490/configuration.nix
+      ];
+    };
+
     devShells.${system}.default = pkgs.mkShell {
       name = "nixconfig-bootstrap";
       packages = [
