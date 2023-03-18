@@ -1,10 +1,9 @@
 { config, lib, pkgs, ... }:
 
 {
-  programs.rofi = {
-    enable = true;
-    terminal = "${pkgs.kitty}/bin/kitty";
-    cycle = true;
-    extraConfig = builtins.readFile ./config_files/rofi.rasi;
-  };
+  home.file.".config/rofi/config.rasi".source = ./config_files/rofi.rasi;
+
+  home.packages = [
+    pkgs.rofi
+  ];
 }
