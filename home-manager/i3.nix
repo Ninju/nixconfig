@@ -49,6 +49,8 @@ in
     pkgs.brightnessctl
     pkgs.flameshot
     pkgs.blueman
+
+    pkgs.rofi
   ];
 
   xsession.windowManager.i3 = {
