@@ -1,5 +1,8 @@
 { pkgs, config, specialArgs, ... }:
 # "Heavily inspired" by https://github.com/hlissner/dotfiles/blob/8fe1fbb6e7fc0d2f95fe75cdb9df7eb0595a0047/modules/editors/emacs.nix
+let
+  doomRev = specialArgs.doom-emacs.rev;
+in
 {
   programs.emacs = {
     enable = true;
@@ -14,21 +17,25 @@
     $DRY_RUN_CMD ln -sf $HOME/src/git/Ninju/nixconfig/home-manager/programs/config_files/.doom.d $HOME/.doom.d
   '';
 
-  home.sessionPath = [
-    "~/.config/emacs/bin"
-  ];
-
   home.activation.installDoomEmacs = config.lib.dag.entryAfter [ "writeBoundary" ] ''
     if [ ! -d ~/.config/emacs ]; then
       echo "Installing DOOM Emacs into ~/.config/emacs; run 'doom install' later"
 
       $DRY_RUN_CMD ${pkgs.git}/bin/git clone http://github.com/doomemacs/doomemacs ~/.config/emacs
       $DRY_RUN_CMD pushd ~/.config/emacs
-      $DRY_RUN_CMD ${pkgs.git}/bin/git reset --hard ${specialArgs.doom-emacs.rev}
+      $DRY_RUN_CMD ${pkgs.git}/bin/git reset --hard ${doomRev}
       $DRY_RUN_CMD popd
 
+    else
+      echo "DOOM Emacs install already detected (rev: ${doomRev}). Delete ~/.config/emacs to start from scratch."
     fi
+
+    echo "DOOM Emacs is installed in ~/.config/emacs and ~/.config/emacs/bin is in the PATH. Check ${../../docs/home-manager/activation_scripts.md} for further instructions and troubleshooting."
   '';
+
+  home.sessionPath = [
+    "~/.config/emacs/bin"
+  ];
 
   home.packages = with pkgs; [
     ## Emacs itself
