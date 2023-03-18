@@ -12,10 +12,6 @@
     ./gpg.nix
   ];
 
-  # --- WORK SETTINGS ---
-  services.awsvpnclient.enable = true;
-  services.awsvpnclient.configFile = "/etc/awsvpnclient/rvu.ovpn";
-
   virtualisation.docker.enable = true;
 
   # --- BLUETOOTH SETTINGS
