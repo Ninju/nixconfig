@@ -28,7 +28,7 @@ SOLUTION: Delete the directory where DOOM was cloned (`rm -rf ~/.config/emacs`) 
 
 CONTEXT: When I hit this issue, `~/.emacs.d` was empty.
 
-SOLUTION: `rm -rf ~/.emacs.d; emacs` - Deleting the directoring and loading Emacs solved it.
+SOLUTION: `rm -rf ~/.emacs.d; emacs` - Deleting the directory and loading Emacs solved it.
 
 ### Why not use the activation script for the install?
 
