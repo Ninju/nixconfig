@@ -29,6 +29,8 @@ let
   };
 in
 {
+  home.file.".config/rofi/config.rasi".source = ./programs/config_files/rofi.rasi;
+
   home.packages = [
     # For volume control pane
     pkgs.mate.mate-media
