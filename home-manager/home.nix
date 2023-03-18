@@ -9,6 +9,7 @@ in
   programs.home-manager.enable = true;
 
   home.file.".dtos-backgrounds".source = "${specialArgs.dtos-backgrounds}";
+  home.file.".kitty-themes".source = "${specialArgs.kitty-themes}";
 
   # https://nix.dev/anti-patterns/language#with-attrset-expression
   home.packages = builtins.attrValues {
