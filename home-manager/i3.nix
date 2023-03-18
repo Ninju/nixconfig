@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }:
 let
-  mkMenu = cmd: "${pkgs.rofi}/bin/rofi -show ${cmd} -theme solarized -l 10 -fn 'Source Code Pro:pixelsize=18'";
+  mkMenu = cmd: "${pkgs.rofi}/bin/rofi -show ${cmd}";
 
   keys = {
     super = "Mod4";
