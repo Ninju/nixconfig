@@ -68,6 +68,7 @@
 (package! kubernetes)
 (package! cue-mode)
 (package! restclient)
+(package! ox-twbs)
 
 (after! simple-httpd
   (setq httpd-port 7070)
