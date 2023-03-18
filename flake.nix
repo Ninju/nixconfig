@@ -10,7 +10,6 @@
   };
 
   inputs.kmonad.url = "github:kmonad/kmonad?dir=nix";
-  inputs.nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
 
   inputs.dmenu-scripts.url = "gitlab:Ninju1/dmscripts";
 
@@ -30,6 +29,9 @@
   inputs.kitty-themes.url = "github:dexpota/kitty-themes";
   inputs.kitty-themes.flake = false;
 
+  inputs.doom-emacs.url = "github:doomemacs/doomemacs";
+  inputs.doom-emacs.flake = false;
+
 # Pin nixpkgs to the version used to build the system
 # nix.registry.nixpkgs.flake = nixpkgs;
 
@@ -40,13 +42,13 @@ outputs = {
  , uswitch-nixpkgs
  , home-manager
  , kmonad
- , nix-doom-emacs
  , dmenu-scripts
  , dtos-backgrounds
  , i3-layouts
  , i3-workspace-groups
  , mach-nix
  , kitty-themes
+ , doom-emacs
 }@inputs:
 
 let
@@ -90,10 +92,9 @@ in
         inherit pkgs;
 
         # Passed into modules as 'specialArgs'
-        extraSpecialArgs = { inherit dtos-backgrounds kitty-themes; };
+        extraSpecialArgs = { inherit dtos-backgrounds kitty-themes doom-emacs; };
 
         modules = [
-          nix-doom-emacs.hmModule
           ./home-manager/home.nix
           ./home-manager/${system}/home.nix
         ];
