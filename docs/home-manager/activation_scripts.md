@@ -18,7 +18,7 @@ The activation script clones the (DOOM Emacs repo)[https://github.com/doomemacs/
 
 Installing Emacs via Home Manager and then running `doom install` should just work. 
 
-_NOTE: Home Manager is also used to link `./.doom.d` out of the `/nix/store` by using hardcoded paths; also via activation scripts.
+_NOTE: Home Manager is also used to link `./.doom.d` out of the `/nix/store` by using hardcoded paths; also via activation scripts._
 
 ### PROBLEM: Activation script did not complete successfully
 
