@@ -146,3 +146,64 @@
   (imp-visit-buffer))
 
 (remove-hook 'doom-first-buffer-hook #'smartparens-global-mode)
+
+;; Source -- https://emacs.cafe/emacs/orgmode/gtd/2017/06/30/orgmode-gtd.html
+(setq notes-dir "/home/alex/Documents/__emacs")
+(setq gtd-dir (concat notes-dir "/gtd"))
+
+(setq gtd-inbox-file (concat gtd-dir "/inbox.org"))
+(setq gtd-tickler-file (concat gtd-dir "/tickler.org"))
+(setq gtd-someday-file (concat gtd-dir "/someday.org"))
+(setq gtd-gtd-file (concat gtd-dir "/gtd.org"))
+
+(setq deft-directory (concat notes-dir "/deft_notes"))
+(setq deft-extensions '("org" "txt"))
+(setq deft-recursive t)
+
+(setq org-directory (concat notes-dir "/org"))
+
+(setq org-agenda-files (list gtd-inbox-file
+                             gtd-gtd-file
+                             gtd-tickler-file))
+
+(setq org-capture-templates '(("t" "Todo [inbox]" entry
+                               (file+headline gtd-inbox-file "Tasks")
+                               "* TODO %i%?")
+                              ("T" "Tickler" entry
+                               (file+headline gtd-tickler-file "Tickler")
+                               "* %i%? \n %U")))
+
+(setq org-refile-targets '((gtd-gtd-file :maxlevel . 3)
+                           (gtd-someday-file :level . 1)
+                           (gtd-tickler-file :maxlevel . 2)))
+
+(setq org-agenda-custom-commands
+      '(("o" "At the office" tags-todo "@office"
+         ((org-agenda-overriding-header "Office")
+          (org-agenda-skip-function #'my-org-agenda-skip-all-siblings-but-first)))
+        ("r" "Work tasks" tags-todo "rvu"
+         ((org-agenda-overriding-header "RVU")
+          (org-agenda-skip-function #'my-org-agenda-skip-all-siblings-but-first)))
+        ("e" "Dev Environment" tags-todo "config"
+         ((org-agenda-overriding-header "My Dev Environment")
+          (org-agenda-skip-function #'my-org-agenda-skip-all-siblings-but-first)))
+        ("s" "Stand-up" tags-todo "@standup"
+         ((org-agenda-overriding-header "Raise at Stand-up")
+          (org-agenda-skip-function #'my-org-agenda-skip-all-siblings-but-first)))))
+
+(defun my-org-agenda-skip-all-siblings-but-first ()
+  "Skip all but the first non-done entry."
+  (let (should-skip-entry)
+    (unless (org-current-is-todo)
+      (setq should-skip-entry t))
+    (save-excursion
+      (while (and (not should-skip-entry) (org-goto-sibling t))
+        (when (org-current-is-todo)
+          (setq should-skip-entry t))))
+    (when should-skip-entry
+      (or (outline-next-heading)
+          (goto-char (point-max))))))
+
+(defun org-current-is-todo ()
+  (string= "TODO" (org-get-todo-state)))
+;; End Source -- https://emacs.cafe/emacs/orgmode/gtd/2017/06/30/orgmode-gtd.html
