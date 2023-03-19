@@ -9,4 +9,11 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
+
+  boot.supportedFilesystems = [ "ext4" "ntfs" ];
+
+  fileSystems."/shared" = {
+    device = "/dev/disk/by-label/Shared";
+    fsType = "ntfs";
+  };
 }
