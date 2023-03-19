@@ -11,7 +11,7 @@
       "--preview-window=down:75%"
     ];
 
-    changeDirWidgetCommand = "find ${config.home.homeDirectory}/src -maxdepth 3 -type d";
+    changeDirWidgetCommand = "find ${config.home.homeDirectory} -maxdepth 4 -type d";
     changeDirWidgetOptions = [ "--preview 'tree -C {}'" ];
 
     fileWidgetCommand = "find . -type f";
