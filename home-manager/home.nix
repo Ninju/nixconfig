@@ -54,6 +54,7 @@ in
     ./programs/git.nix
     ./programs/kitty.nix
     ./programs/neovim.nix
+    ./programs/gxkb.nix
 
     ./i3.nix
   ];
