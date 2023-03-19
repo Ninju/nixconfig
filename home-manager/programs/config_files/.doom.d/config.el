@@ -189,6 +189,12 @@
           (org-agenda-skip-function #'my-org-agenda-skip-all-siblings-but-first)))
         ("s" "Stand-up" tags-todo "@standup"
          ((org-agenda-overriding-header "Raise at Stand-up")
+          (org-agenda-skip-function #'my-org-agenda-skip-all-siblings-but-first)))
+        ("w" "Work" tags-todo "@work"
+         ((org-agenda-overriding-header "Work only - no personal stuff")
+          (org-agenda-skip-function #'my-org-agenda-skip-all-siblings-but-first)))
+        ("p" "Stand-up" tags-todo "@personal"
+         ((org-agenda-overriding-header "Personal stuff only - no work")
           (org-agenda-skip-function #'my-org-agenda-skip-all-siblings-but-first)))))
 
 (defun my-org-agenda-skip-all-siblings-but-first ()
