@@ -247,11 +247,11 @@ in
         { command = "${pkgs.i3-layouts}/bin/i3-layouts"; always = true; notification = true; }
         { command = "${pkgs.i3-workspace-groups}/bin/i3-workspace-groups"; always = true; notification = true; }
         { command = "${pkgs.gxkb}/bin/gxkb"; always = true; notification = true; }
-        { command = "${pkgs.killall}/bin/killall conky"; always = true; }
         { command = "nm-applet"; always = true; notification = true; }
         { command = "${pkgs.blueman}/bin/blueman-applet"; always = true; notification = true; }
         { command = "${pkgs.mate.mate-media}/bin/mate-volume-control-status-icon"; always = true; notification = true; }
         { command = "${pkgs.nitrogen}/bin/nitrogen --restore"; always = true; }
+        { command = "${pkgs.killall}/bin/killall conky"; always = true; }
         { command = "sleep 2 && ${pkgs.conky}/bin/conky -c ${./programs/config_files/doom-one.conkyrc}"; always = true; }
       ];
     };
