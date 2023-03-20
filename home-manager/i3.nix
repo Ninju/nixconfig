@@ -79,10 +79,10 @@ in
         "${modifier}+Up" = "focus up";
         "${modifier}+Right" = "focus right";
 
-        "${modifier}+Shift+Left" = "exec ${pkgs.i3-layouts}/bin/i3l move left";
-        "${modifier}+Shift+Down" = "exec ${pkgs.i3-layouts}/bin/i3l move down";
-        "${modifier}+Shift+Up" = "exec ${pkgs.i3-layouts}/bin/i3l move up";
-        "${modifier}+Shift+Right" = "exec ${pkgs.i3-layouts}/bin/i3l move right";
+        "${modifier}+Shift+Left" = "$exec_i3l move left";
+        "${modifier}+Shift+Down" = "$exec_i3l move down";
+        "${modifier}+Shift+Up" = "$exec_i3l move up";
+        "${modifier}+Shift+Right" = "$exec_i3l move right";
 
         "${modifier}+h" = "split h";
         "${modifier}+v" = "split v";
@@ -222,13 +222,13 @@ in
         };
 
         layouts = {
-          "v" = "exec ${pkgs.i3-layouts}/bin/i3l vstack";
-          "h" = "exec ${pkgs.i3-layouts}/bin/i3l hstack";
-          "s" = "exec ${pkgs.i3-layouts}/bin/i3l spiral";
-          "c" = "exec ${pkgs.i3-layouts}/bin/i3l companion";
-          "a" = "exec ${pkgs.i3-layouts}/bin/i3l autosplit";
-          "2" = "exec ${pkgs.i3-layouts}/bin/i3l 2columns";
-          "3" = "exec ${pkgs.i3-layouts}/bin/i3l 3columns";
+          "v" = "$exec_i3l vstack";
+          "h" = "$exec_i3l hstack";
+          "s" = "$exec_i3l spiral";
+          "c" = "$exec_i3l companion";
+          "a" = "$exec_i3l autosplit";
+          "2" = "$exec_i3l 2columns";
+          "3" = "$exec_i3l 3columns";
           "Escape" = "mode default";
           "Return" = "mode default";
         };
@@ -257,6 +257,8 @@ in
     };
 
     extraConfig = ''
+    set $exec_i3l exec --no-startup-id ${pkgs.i3-layouts}/bin/i3l
+
     set $i3l vstack to workspace 1
     set $i3l vstack to workspace 2
     set $i3l vstack to workspace 3
