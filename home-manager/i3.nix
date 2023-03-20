@@ -111,16 +111,16 @@ in
         "${modifier}+9" = "workspace number 9";
         "${modifier}+0" = "workspace number 10";
 
-        "${modifier}+Shift+1" = "exec ${pkgs.i3-layouts}/bin/i3l move container to workspace number 1";
-        "${modifier}+Shift+2" = "exec ${pkgs.i3-layouts}/bin/i3l move container to workspace number 2";
-        "${modifier}+Shift+3" = "exec ${pkgs.i3-layouts}/bin/i3l move container to workspace number 3";
-        "${modifier}+Shift+4" = "exec ${pkgs.i3-layouts}/bin/i3l move container to workspace number 4";
-        "${modifier}+Shift+5" = "exec ${pkgs.i3-layouts}/bin/i3l move container to workspace number 5";
-        "${modifier}+Shift+6" = "exec ${pkgs.i3-layouts}/bin/i3l move container to workspace number 6";
-        "${modifier}+Shift+7" = "exec ${pkgs.i3-layouts}/bin/i3l move container to workspace number 7";
-        "${modifier}+Shift+8" = "exec ${pkgs.i3-layouts}/bin/i3l move container to workspace number 8";
-        "${modifier}+Shift+9" = "exec ${pkgs.i3-layouts}/bin/i3l move container to workspace number 9";
-        "${modifier}+Shift+0" = "exec ${pkgs.i3-layouts}/bin/i3l move container to workspace number 10";
+        "${modifier}+Shift+1" = "move container to workspace number 1";
+        "${modifier}+Shift+2" = "move container to workspace number 2";
+        "${modifier}+Shift+3" = "move container to workspace number 3";
+        "${modifier}+Shift+4" = "move container to workspace number 4";
+        "${modifier}+Shift+5" = "move container to workspace number 5";
+        "${modifier}+Shift+6" = "move container to workspace number 6";
+        "${modifier}+Shift+7" = "move container to workspace number 7";
+        "${modifier}+Shift+8" = "move container to workspace number 8";
+        "${modifier}+Shift+9" = "move container to workspace number 9";
+        "${modifier}+Shift+0" = "move container to workspace number 10";
 
         "${modifier}+Shift+c" = "reload";
         "${modifier}+Shift+r" = "restart";
