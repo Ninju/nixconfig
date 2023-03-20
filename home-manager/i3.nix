@@ -246,7 +246,7 @@ in
       startup = [
         { command = "${pkgs.i3-layouts}/bin/i3-layouts"; always = true; notification = true; }
         { command = "${pkgs.i3-workspace-groups}/bin/i3-workspace-groups"; always = true; notification = true; }
-        { command = "${pkgs.gxkb}/bin/gxkb"; always = true; notification = true; }
+        { command = "${pkgs.gxkb}/bin/gxkb"; }
         { command = "nm-applet"; always = true; notification = true; }
         { command = "${pkgs.blueman}/bin/blueman-applet"; always = true; notification = true; }
         { command = "${pkgs.mate.mate-media}/bin/mate-volume-control-status-icon"; always = true; notification = true; }
