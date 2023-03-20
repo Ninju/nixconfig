@@ -159,14 +159,14 @@ in
       };
 
       gaps = {
-        inner = 10;
-        outer = 10;
+        inner = 0;
+        outer = 0;
       };
 
       window = {
         titlebar = false;
-        border = 0;
-        hideEdgeBorders = "both";
+        border = 5;
+        hideEdgeBorders = "smart";
         commands = [
           { command = "floating enable"; criteria = { class = "Sound Preferences"; }; }
           { command = "floating enable"; criteria = { class = "zoom"; }; }
