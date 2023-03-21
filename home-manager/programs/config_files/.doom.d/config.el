@@ -181,19 +181,32 @@
       '(("o" "At the office" tags-todo "@office"
          ((org-agenda-overriding-header "Office")
           (org-agenda-skip-function #'my-org-agenda-skip-all-siblings-but-first)))
-        ("r" "Work tasks" tags-todo "rvu"
-         ((org-agenda-overriding-header "RVU")
-          (org-agenda-skip-function #'my-org-agenda-skip-all-siblings-but-first)))
-        ("e" "Dev Environment" tags-todo "config"
-         ((org-agenda-overriding-header "My Dev Environment")
-          (org-agenda-skip-function #'my-org-agenda-skip-all-siblings-but-first)))
-        ("s" "Stand-up" tags-todo "@standup"
-         ((org-agenda-overriding-header "Raise at Stand-up")
-          (org-agenda-skip-function #'my-org-agenda-skip-all-siblings-but-first)))
+
+        ("s" "Stand-up"
+         ((tags "@standup"
+               ((org-agenda-overriding-header "Stand-up Items")))
+          (tags "@team"
+               ((org-agenda-overriding-header "Raise with Team")))
+          (todo "DONE"
+               ((org-agenda-overriding-header "DONE")))
+          (tags "+@work+TODO=\"TODO\""
+               ((org-agenda-overriding-header "TODO")
+                (org-agenda-skip-function #'my-org-agenda-skip-all-siblings-but-first)))
+          (agenda ""
+                  ((org-agenda-span 1)
+                   (org-agenda-start-day "+0d")
+                   (org-deadline-warning-days 1)
+                   (org-agenda-overriding-header "Today")))
+          (agenda ""
+                  ((org-agenda-span 3)
+                   (org-agenda-start-day "+1d")
+                   (org-deadline-warning-days 0)
+                   (org-agenda-overriding-header "Next 3 days")))))
+
         ("w" "Work" tags-todo "@work"
          ((org-agenda-overriding-header "Work only - no personal stuff")
           (org-agenda-skip-function #'my-org-agenda-skip-all-siblings-but-first)))
-        ("p" "Stand-up" tags-todo "@personal"
+        ("p" "Personal" tags-todo "@personal"
          ((org-agenda-overriding-header "Personal stuff only - no work")
           (org-agenda-skip-function #'my-org-agenda-skip-all-siblings-but-first)))))
 
