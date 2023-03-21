@@ -178,11 +178,7 @@
                            (gtd-tickler-file :maxlevel . 2)))
 
 (setq org-agenda-custom-commands
-      '(("o" "At the office" tags-todo "@office"
-         ((org-agenda-overriding-header "Office")
-          (org-agenda-skip-function #'my-org-agenda-skip-all-siblings-but-first)))
-
-        ("s" "Stand-up"
+      '(("s" "Stand-up"
          ((tags "@standup"
                ((org-agenda-overriding-header "Stand-up Items")))
           (tags "@team"
@@ -206,6 +202,7 @@
         ("w" "Work" tags-todo "@work"
          ((org-agenda-overriding-header "Work only - no personal stuff")
           (org-agenda-skip-function #'my-org-agenda-skip-all-siblings-but-first)))
+
         ("p" "Personal" tags-todo "@personal"
          ((org-agenda-overriding-header "Personal stuff only - no work")
           (org-agenda-skip-function #'my-org-agenda-skip-all-siblings-but-first)))))
