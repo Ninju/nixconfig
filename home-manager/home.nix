@@ -41,6 +41,8 @@ in
       ranger
       sbcl
 
+      google-chrome
+
       u
       kubectl
 
