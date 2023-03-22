@@ -44,7 +44,7 @@
 
   #
   # Enable automatic login for the user.
-  services.xserver.displayManager.autoLogin.enable = true;
+  services.xserver.displayManager.autoLogin.enable = false;
   services.xserver.displayManager.autoLogin.user = "alex";
 
 
