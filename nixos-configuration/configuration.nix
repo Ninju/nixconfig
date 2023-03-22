@@ -40,6 +40,11 @@
     };
   };
 
+  security.pam.services.sddm = {
+    name = "kwallet";
+    enableKwallet = true;
+  };
+
   services.fprintd.enable = true;
 
   #
@@ -143,6 +148,8 @@
   environment.systemPackages = [
     pkgs.slack
     pkgs.zoom-us
+
+    pkgs.kwallet-pam
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

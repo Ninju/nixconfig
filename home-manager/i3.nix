@@ -248,6 +248,8 @@ in
         { command = "${pkgs.i3-workspace-groups}/bin/i3-workspace-groups"; always = true; notification = true; }
         { command = "${pkgs.gxkb}/bin/gxkb"; }
         { command = "nm-applet"; always = true; notification = true; }
+        { command = "kwalletd5"; always = true; notification = true; }
+        { command = "${pkgs.kwallet-pam}/libexec/pam_kwallet_init"; always = true; notification = true; }
         { command = "${pkgs.blueman}/bin/blueman-applet"; always = true; notification = true; }
         { command = "${pkgs.mate.mate-media}/bin/mate-volume-control-status-icon"; always = true; notification = true; }
         { command = "${pkgs.nitrogen}/bin/nitrogen --restore"; always = true; }
