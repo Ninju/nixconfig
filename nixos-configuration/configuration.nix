@@ -35,11 +35,8 @@
 
   services.xserver.displayManager = {
     defaultSession = "none+i3";
-    lightdm = {
-      greeters.enso = {
-        enable = true;
-        blur = true;
-      };
+    sddm = {
+      enable = true;
     };
   };
 
