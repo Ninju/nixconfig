@@ -24,14 +24,16 @@ let
   };
 
   menus = {
-    runApps = mkMenu "run";
+    runApps = mkMenu "drun";
     switchWindows = mkMenu "window";
   };
 in
 {
-  home.file.".config/rofi/config.rasi".source = ./programs/config_files/rofi.rasi;
+  home.file.".config/rofi/config.rasi".source = ./programs/config_files/rofi2.rasi;
 
   home.packages = [
+
+    pkgs.jetbrains-mono
     # For volume control pane
     pkgs.mate.mate-media
 
