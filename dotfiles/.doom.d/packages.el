@@ -69,6 +69,9 @@
 (package! cue-mode)
 (package! restclient)
 (package! ox-twbs)
+(package! kbd-mode
+  :recipe (:host github
+           :repo "kmonad/kbd-mode"))
 
 (after! simple-httpd
   (setq httpd-port 7070)
