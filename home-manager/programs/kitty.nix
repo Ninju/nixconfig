@@ -4,6 +4,6 @@
     enable = true;
     # theme = "Aquarium Dark";
     theme = "Tokyo Night";
-    extraConfig = builtins.readFile ./config_files/kitty;
+    extraConfig = builtins.readFile ../../partial_dotfiles/kitty;
   };
 }

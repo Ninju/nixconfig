@@ -8,7 +8,7 @@
 
     defaultEditor = true;
 
-    extraConfig = builtins.readFile ./config_files/vimrc; 
+    extraConfig = builtins.readFile ../../partial_dotfiles/vimrc;
 
     plugins = with pkgs.vimPlugins; [
       ctrlp
