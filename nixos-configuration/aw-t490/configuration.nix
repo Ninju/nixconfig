@@ -15,5 +15,9 @@
   fileSystems."/shared" = {
     device = "/dev/disk/by-label/Shared";
     fsType = "ntfs";
+     options = [
+       "fmask=133"
+       "dmask=022"
+     ];
   };
 }
