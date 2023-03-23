@@ -10,3 +10,4 @@ My dotfiles are managed in [nix](https://nixos.org/).
 | Editor   | [Doom Emacs](https://github.com/doomemacs/doomemacs)                                              |
 | Terminal | [kitty](https://sw.kovidgoyal.net/kitty/)                                                         |
 | Launcher | [rofi](https://github.com/davatorium/rofi)                                                        |
+| Keyboard | [KMonad](https://github.com/kmonad/kmonad)                                                        |
