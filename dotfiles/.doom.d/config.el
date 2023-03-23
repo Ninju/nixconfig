@@ -205,8 +205,23 @@
                    (org-agenda-overriding-header "Next 3 days")))))
 
         ("t" "Today"
-         ((tags ""
-                ((org-agenda-overriding-header "TODO")
+         ((alltodo ""
+                ((org-agenda-overriding-header "Focus")
+                 (org-agenda-skip-function #'my-org-agenda-skip-all-siblings-but-first)))
+          (agenda ""
+                  ((org-agenda-span 1)
+                   (org-agenda-start-day "+0d")
+                   (org-deadline-warning-days 1)
+                   (org-agenda-overriding-header "Today")))
+          (agenda ""
+                  ((org-agenda-span 3)
+                   (org-agenda-start-day "+1d")
+                   (org-deadline-warning-days 0)
+                   (org-agenda-overriding-header "Next 3 days")))))
+
+        ("T" "All tasks"
+         ((alltodo ""
+                ((org-agenda-overriding-header "Focus")
                  (org-agenda-skip-function #'my-org-agenda-skip-all-siblings-but-first)))
           (agenda ""
                   ((org-agenda-span 1)
