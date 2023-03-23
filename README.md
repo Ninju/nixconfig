@@ -2,11 +2,11 @@
 
 My dotfiles are managed in [nix](https://nixos.org/).
 
-|          |               |
-|----------|---------------|
-| Shell    | bash          |
-| DM       | SDDM          |
-| WM       | i3 + i3blocks |
-| Editor   | Doom Emacs    |
-| Terminal | kitty         |
-| Launcher | rofi          |
+|          |                                                                                                   |
+|----------|---------------------------------------------------------------------------------------------------|
+| Shell    | [bash](https://www.gnu.org/software/bash/)                                                        |
+| DM       | [SDDM](https://github.com/sddm/sddm)                                                              |
+| WM       | [i3](https://github.com/doomemacs/doomemacs) + [i3blocks](https://github.com/doomemacs/doomemacs) |
+| Editor   | [Doom Emacs](https://github.com/doomemacs/doomemacs)                                              |
+| Terminal | [kitty](https://sw.kovidgoyal.net/kitty/)                                                         |
+| Launcher | [rofi](https://github.com/davatorium/rofi)                                                        |
