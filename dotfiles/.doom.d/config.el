@@ -205,7 +205,7 @@
                    (org-agenda-overriding-header "Next 3 days")))))
 
         ("t" "Today"
-         ((tags "+@work"
+         ((tags ""
                 ((org-agenda-overriding-header "TODO")
                  (org-agenda-skip-function #'my-org-agenda-skip-all-siblings-but-first)))
           (agenda ""
@@ -217,15 +217,7 @@
                   ((org-agenda-span 3)
                    (org-agenda-start-day "+1d")
                    (org-deadline-warning-days 0)
-                   (org-agenda-overriding-header "Next 3 days")))))
-
-        ("w" "Work" tags-todo "@work"
-         ((org-agenda-overriding-header "Work only - no personal stuff")
-          (org-agenda-skip-function #'my-org-agenda-skip-all-siblings-but-first)))
-
-        ("p" "Personal" tags-todo "@personal"
-         ((org-agenda-overriding-header "Personal stuff only - no work")
-          (org-agenda-skip-function #'my-org-agenda-skip-all-siblings-but-first)))))
+                   (org-agenda-overriding-header "Next 3 days")))))))
 
 (defun my-org-agenda-skip-all-siblings-but-first ()
   "Skip all but the first non-done entry."
