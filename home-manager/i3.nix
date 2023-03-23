@@ -34,6 +34,7 @@ in
 {
   home.file.".config/rofi/config.rasi".source = ../dotfiles/.config/rofi/config.rasi;
   home.file.".config/i3blocks/config".source = ../dotfiles/.config/i3blocks/config;
+  home.file.".conkyrc".source = ../dotfiles/.config/conky/doom-one.conkyrc;
 
   home.activation.link-i3blocks-contrib = config.lib.dag.entryAfter [ "writeBoundary" ] ''
     if [ ! -d ${i3blocksContribDir} ]; then
@@ -273,7 +274,7 @@ in
         { command = "${pkgs.mate.mate-media}/bin/mate-volume-control-status-icon"; always = true; notification = true; }
         { command = "${pkgs.nitrogen}/bin/nitrogen --restore"; always = true; }
         { command = "${pkgs.killall}/bin/killall conky"; always = true; }
-        { command = "sleep 2 && ${pkgs.conky}/bin/conky -c ${./programs/config_files/doom-one.conkyrc}"; always = true; }
+        { command = "sleep 2 && ${pkgs.conky}/bin/conky"; always = true; }
       ];
     };
 
