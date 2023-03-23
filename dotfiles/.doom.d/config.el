@@ -160,6 +160,8 @@
 (setq deft-extensions '("org" "txt"))
 (setq deft-recursive t)
 
+(setq retro-file (concat notes-dir "/retro.org"))
+
 (setq org-directory (concat notes-dir "/org"))
 
 (setq org-agenda-files (list gtd-inbox-file
@@ -171,7 +173,10 @@
                                "* TODO %i%?")
                               ("T" "Tickler" entry
                                (file+headline gtd-tickler-file "Tickler")
-                               "* %i%? \n %U")))
+                               "* %i%? \n %U")
+                              ("r" "Retro" entry
+                               (file+headline retro-file "Retro")
+                               "* IDEA %i%? \n %U")))
 
 (setq org-refile-targets '((gtd-gtd-file :maxlevel . 3)
                            (gtd-someday-file :level . 1)
