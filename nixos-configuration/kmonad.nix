@@ -18,7 +18,7 @@ in
             allowCommands = false;
           };
 
-          config = builtins.readFile ./config_files/kmonad.lisp;
+          config = builtins.readFile ../partial_dotfiles/kmonad.kbd;
         };
       };
     };
