@@ -1,0 +1,10 @@
+command=$SCRIPT_DIR/$BLOCK_NAME/$BLOCK_NAME
+
+[dunst]
+interval=once
+format=json
+markup=pango
+
+[battery2]
+interval=30
+markup=pango

@@ -136,6 +136,22 @@
         "type": "github"
       }
     },
+    "i3blocks-contrib": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1670390867,
+        "narHash": "sha256-z7bLhDex8qCPBX73Umpg47VB4csxr2p6VMIyf/cjCdw=",
+        "owner": "vivien",
+        "repo": "i3blocks-contrib",
+        "rev": "fc2c10551c32558be44226c6924d64bae611e32c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "vivien",
+        "repo": "i3blocks-contrib",
+        "type": "github"
+      }
+    },
     "kitty-themes": {
       "flake": false,
       "locked": {
@@ -321,6 +337,7 @@
         "home-manager": "home-manager",
         "i3-layouts": "i3-layouts",
         "i3-workspace-groups": "i3-workspace-groups",
+        "i3blocks-contrib": "i3blocks-contrib",
         "kitty-themes": "kitty-themes",
         "kmonad": "kmonad",
         "mach-nix": "mach-nix",

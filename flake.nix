@@ -24,6 +24,9 @@
   inputs.i3-workspace-groups.url = "github:infokiller/i3-workspace-groups";
   inputs.i3-workspace-groups.flake = false;
 
+  inputs.i3blocks-contrib.url = "github:vivien/i3blocks-contrib";
+  inputs.i3blocks-contrib.flake = false;
+
   inputs.mach-nix.url = "github:DavHau/mach-nix";
 
   inputs.kitty-themes.url = "github:dexpota/kitty-themes";
@@ -46,6 +49,7 @@ outputs = {
  , dtos-backgrounds
  , i3-layouts
  , i3-workspace-groups
+ , i3blocks-contrib
  , mach-nix
  , kitty-themes
  , doom-emacs
@@ -92,7 +96,13 @@ in
         inherit pkgs;
 
         # Passed into modules as 'specialArgs'
-        extraSpecialArgs = { inherit dtos-backgrounds kitty-themes doom-emacs; };
+        extraSpecialArgs = {
+          inherit
+            dtos-backgrounds
+            kitty-themes
+            doom-emacs
+            i3blocks-contrib;
+        };
 
         modules = [
           ./home-manager/home.nix

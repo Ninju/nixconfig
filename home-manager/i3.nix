@@ -1,6 +1,9 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, specialArgs, ... }:
 let
   mkMenu = cmd: "${pkgs.rofi}/bin/rofi -show ${cmd}";
+
+  i3blocksContribRev = specialArgs.i3blocks-contrib.rev;
+  i3blocksContribDir = "~/.config/i3blocks-contrib";
 
   keys = {
     super = "Mod4";
@@ -30,8 +33,21 @@ let
 in
 {
   home.file.".config/rofi/config.rasi".source = ./programs/config_files/rofi2.rasi;
+  home.file.".config/i3blocks/config".source = ../dotfiles/.config/i3blocks/config;
+
+  home.activation.link-i3blocks-contrib = config.lib.dag.entryAfter [ "writeBoundary" ] ''
+    if [ ! -d ${i3blocksContribDir} ]; then
+      $DRY_RUN_CMD ${pkgs.git}/bin/git clone http://github.com/vivien/i3blocks-contrib ${i3blocksContribDir}
+      $DRY_RUN_CMD pushd ${i3blocksContribDir}
+      $DRY_RUN_CMD ${pkgs.git}/bin/git reset --hard ${i3blocksContribRev}
+      $DRY_RUN_CMD popd
+    fi
+  '';
 
   home.packages = [
+    # i3block-contrib
+    pkgs.python3 pkgs.acpi # battery2
+    # pkgs.python3 # dunst
 
     pkgs.jetbrains-mono
     # For volume control pane
@@ -243,6 +259,7 @@ in
           names = [ "Source Code Pro" "monospace" ];
           size = 12.0;
         };
+        statusCommand = "SCRIPT_DIR=${i3blocksContribDir} ${pkgs.i3blocks}/bin/i3blocks";
       }];
 
       startup = [
