@@ -14,7 +14,7 @@ in
   # IMPORTANT! Assumes that this repo has been symlinked or cloned to ~/.nixconfig
   home.activation.linkDoomEmacs = config.lib.dag.entryAfter [ "writeBoundary" ] ''
     echo "(Sym)Linking .doom.d config"
-    $DRY_RUN_CMD ln -sf $HOME/src/git/Ninju/nixconfig/home-manager/programs/config_files/.doom.d $HOME/.doom.d
+    $DRY_RUN_CMD ln -sf $HOME/src/git/Ninju/nixconfig/dotfiles/.doom.d $HOME/.doom.d
   '';
 
   home.activation.installDoomEmacs = config.lib.dag.entryAfter [ "writeBoundary" ] ''
