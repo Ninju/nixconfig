@@ -32,7 +32,7 @@ let
   };
 in
 {
-  home.file.".config/rofi/config.rasi".source = ./programs/config_files/rofi2.rasi;
+  home.file.".config/rofi/config.rasi".source = ../dotfiles/.config/rofi/config.rasi;
   home.file.".config/i3blocks/config".source = ../dotfiles/.config/i3blocks/config;
 
   home.activation.link-i3blocks-contrib = config.lib.dag.entryAfter [ "writeBoundary" ] ''
