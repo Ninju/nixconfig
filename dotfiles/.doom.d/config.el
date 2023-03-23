@@ -185,14 +185,29 @@
 (setq org-agenda-custom-commands
       '(("s" "Stand-up"
          ((tags "@standup"
-               ((org-agenda-overriding-header "Stand-up Items")))
+                ((org-agenda-overriding-header "Stand-up Items")))
           (tags "@team"
-               ((org-agenda-overriding-header "Raise with Team")))
+                ((org-agenda-overriding-header "Raise with Team")))
           (todo "DONE"
-               ((org-agenda-overriding-header "DONE")))
+                ((org-agenda-overriding-header "DONE")))
           (tags "+@work+TODO=\"TODO\""
-               ((org-agenda-overriding-header "TODO")
-                (org-agenda-skip-function #'my-org-agenda-skip-all-siblings-but-first)))
+                ((org-agenda-overriding-header "TODO")
+                 (org-agenda-skip-function #'my-org-agenda-skip-all-siblings-but-first)))
+          (agenda ""
+                  ((org-agenda-span 1)
+                   (org-agenda-start-day "+0d")
+                   (org-deadline-warning-days 1)
+                   (org-agenda-overriding-header "Today")))
+          (agenda ""
+                  ((org-agenda-span 3)
+                   (org-agenda-start-day "+1d")
+                   (org-deadline-warning-days 0)
+                   (org-agenda-overriding-header "Next 3 days")))))
+
+        ("t" "Today"
+         ((tags "+@work"
+                ((org-agenda-overriding-header "TODO")
+                 (org-agenda-skip-function #'my-org-agenda-skip-all-siblings-but-first)))
           (agenda ""
                   ((org-agenda-span 1)
                    (org-agenda-start-day "+0d")
@@ -226,5 +241,7 @@
           (goto-char (point-max))))))
 
 (defun org-current-is-todo ()
-  (string= "TODO" (org-get-todo-state)))
+  (or (string= "TODO" (org-get-todo-state))
+      (string= "STRT" (org-get-todo-state))))
+
 ;; End Source -- https://emacs.cafe/emacs/orgmode/gtd/2017/06/30/orgmode-gtd.html
