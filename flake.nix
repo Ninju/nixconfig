@@ -72,6 +72,8 @@ let
                             i3-overlays.overlay
                             x86_64-linux-overlays.overlay
                           ];
+
+                          config.allowUnfree = true;
                         };
 
   mkNixosSystem = import ./lib/mkNixosSystem.nix {
