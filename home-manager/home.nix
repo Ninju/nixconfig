@@ -11,6 +11,8 @@ in
   home.file.".dtos-backgrounds".source = "${specialArgs.dtos-backgrounds}";
   home.file.".kitty-themes".source = "${specialArgs.kitty-themes}";
 
+  services.lorri.enable = true;
+
   # https://nix.dev/anti-patterns/language#with-attrset-expression
   home.packages = builtins.attrValues {
     inherit (pkgs)
