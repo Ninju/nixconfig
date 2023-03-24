@@ -27,6 +27,8 @@ in
       dm-websearch
       dm-wifi
 
+      direnv
+
       feh
       fzf
       htop
