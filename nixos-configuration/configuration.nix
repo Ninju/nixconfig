@@ -12,6 +12,11 @@
     ./gpg.nix
   ];
 
+  fonts.fonts = with pkgs; [
+    jetbrains-mono
+    nerdfonts
+  ];
+
   virtualisation.docker.enable = true;
 
   # --- BLUETOOTH SETTINGS
