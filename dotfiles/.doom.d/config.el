@@ -108,7 +108,11 @@
       :v ", c /" #'comment-region
       :v ", c \\" #'uncomment-region
 
-      :n "SPC" #'avy-goto-char)
+      :n "SPC" #'avy-goto-char
+
+      :mode #'sly-mrepl-mode
+        :i "<up>"   #'sly-mrepl-previous-input-or-button
+        :i "<down>" #'sly-mrepl-previous-input-or-button)
 
 (when (featurep 'ns)
   (defun ns-raise-emacs ()
