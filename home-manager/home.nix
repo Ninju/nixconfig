@@ -39,6 +39,7 @@ in
       yq
 
       ranger
+      sbcl
 
       u
       kubectl
