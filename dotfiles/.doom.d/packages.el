@@ -61,7 +61,14 @@
 (package! undo-tree)
 (package! simple-httpd)
 (package! feature-mode)
+
+;; Minor mode that allows you to see the effect of buffer changes on HTML pages
+;; 1. Start the server (httpd-start)
+;; 2. Add minor mode to buffer(s) you want to watch: (impatient-mode)
+;; 3. Go to localhost:8080/imp to see live changes
+;; Site: https://github.com/skeeto/impatient-mode
 (package! impatient-mode)
+
 (package! default-text-scale)
 (package! ox-twbs)
 (package! magit-section)
