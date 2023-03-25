@@ -12,7 +12,7 @@
 )
 
 (defalias
-  ext  (tap-next esc (layer-toggle extend))
+  ext  (layer-toggle extend)
 
   cpy C-S-c
   pst C-S-v
