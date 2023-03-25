@@ -41,7 +41,7 @@
 (deflayer extend
   _    _   _   _   _   _   _   _   _   _   _   _   _   _    _   _   _
   _    _    _    _    _    _    _    _    _    _    _    _    _     _
-  _    _    _    _    _    [    ]    home up   end  _    _    _
+  _    esc  _    _    _    [    ]    home up   end  esc  _    _
   _    lalt _    lsft lctl \(   \)   lft  down rght bspc _          _
   _    _    _    @cpy @pst {    }    _    _    _    _    _
        _    _    _          ret           _    _    _     _    _    _
