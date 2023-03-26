@@ -110,9 +110,13 @@
 
       :n "SPC" #'avy-goto-char
 
+      :mode #'lisp-mode
+        :n ", c l" #'sly-compile-and-load-file
+        :n ", c z" #'sly-mrepl
       :mode #'sly-mrepl-mode
         :i "<up>"   #'sly-mrepl-previous-input-or-button
-        :i "<down>" #'sly-mrepl-previous-input-or-button)
+        :i "<down>" #'sly-mrepl-previous-input-or-button
+        :n ", c z" #'previous-buffer)
 
 (when (featurep 'ns)
   (defun ns-raise-emacs ()
