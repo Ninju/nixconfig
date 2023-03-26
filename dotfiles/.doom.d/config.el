@@ -110,13 +110,20 @@
 
       :n "SPC" #'avy-goto-char
 
-      :mode #'lisp-mode
-        :n ", c l" #'sly-compile-and-load-file
-        :n ", c z" #'sly-mrepl
-      :mode #'sly-mrepl-mode
+      :n ", [" #'previous-buffer
+      :n ", ]" #'next-buffer)
+
+(map! :mode #'lisp-mode
+      :map 'normal
+      ", c l" #'sly-compile-and-load-file
+      ", c o" #'sly-eval-print-last-expression
+      ", c u" #'sly-eval-last-expression
+      ", c z" #'sly-mrepl)
+
+(map! :mode #'sly-mrepl-mode
         :i "<up>"   #'sly-mrepl-previous-input-or-button
         :i "<down>" #'sly-mrepl-previous-input-or-button
-        :n ", c z" #'previous-buffer)
+        :n "<leader> c z" #'previous-buffer)
 
 (when (featurep 'ns)
   (defun ns-raise-emacs ()
