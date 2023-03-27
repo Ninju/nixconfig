@@ -51,6 +51,21 @@ in
 
   services.dunst.enable = true;
 
+  services.dunst.settings = {
+    global = {
+      width = 300;
+      height = 300;
+      offset = "20x40";
+      origin = "top-right";
+      transparency = 30;
+      frame_color = "#eceff1";
+      background = "#24283b";
+      foreground = "#c0caf5";
+      highlight = "#292e42";
+      font = "JetBrainsMono Nerd 9";
+    };
+  };
+
   imports = [
     ./programs/bash.nix
     ./programs/chromium.nix
