@@ -29,6 +29,7 @@ let
   menus = {
     runApps = mkMenu "drun";
     switchWindows = mkMenu "window";
+    showMsg = mkMenu "window -e";
   };
 in
 {
@@ -167,7 +168,7 @@ in
         "Shift+${keys.media.display}" = "exec ${pkgs.arandr}/bin/arandr";
 
         "${modifier}+Ctrl+m" = "exec ${pkgs.mate.mate-media}/bin/mate-volume-control";
-        "${modifier}+Shift+p" = "exec ${pkgs.rofi}/bin/rofi -show window -e \"$(date '+%A %W %Y %X')\"";
+        "${modifier}+Shift+p" = "exec ${menus.showMsg} \"$(date '+%X   %A %d %B %Y   %-W/52   %-j/365')\"";
 
         "${modifier}+Shift+z" = "exec ${pkgs.i3lock}/bin/i3lock -c 000000";
 
