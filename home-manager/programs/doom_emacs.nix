@@ -87,5 +87,7 @@ in
 
     # :tools direnv
     direnv
+
+    tabnine
   ];
 }
