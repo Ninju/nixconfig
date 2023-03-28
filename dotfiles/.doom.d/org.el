@@ -196,10 +196,12 @@
 
 
 (setq org-todo-keyword-faces
-      '(("DEF"        . +org-todo-project)
+      '(("PROJECT"        . +org-todo-project)
+        ("IDEA"           . +org-todo-project)
 
         ("[-]"        . +org-todo-active)
         ("STRT"       . +org-todo-active)
+        ("GOAL"       . +org-todo-active)
         ("IN-PROCESS" . +org-todo-active)
 
         ("[?]"        . +org-todo-onhold)
@@ -209,10 +211,14 @@
         ("PROJ"       . +org-todo-project)
 
         ("NO"         . +org-todo-cancel)
+        ("DISCARDED"  . +org-todo-cancel)
+        ("CANCELLED"  . +org-todo-cancel)
         ("KILL"       . +org-todo-cancel)))
 
 (setq org-todo-keywords
-      '((sequence "DEF" "TODO" "IN-PROCESS" "|" "DONE" "KILL")))
+      '((sequence "IDEA"    "GOAL"       "|" "ACHIEVED" "MISSED" "DISCARDED")
+        (sequence "PROJECT"              "|" "COMPLETE"          "CANCELLED")
+        (sequence "TODO"    "IN-PROCESS" "|" "DONE" "KILL")))
 
 ;; Brian Tracy: ABCDE method for prioritisation
 ;; https://www.briantracy.com/blog/time-management/the-abcde-list-technique-for-setting-priorities/
