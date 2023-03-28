@@ -341,15 +341,15 @@
                       ("_blocked" . ?b)
                       ("_delegated" . ?B)
 
-                      ("reminder" . ?r)
-                      ("project" . ?j)
-                      ("productivity" . ?P)
-                      ("idea" . ?i)
-                      ("important" . ?I)
+                      ("chore" . ?c)
                       ("decision" . ?d)
                       ("digital_cleanliness" . ?x)
                       ("errand" . ?e)
-                      ("chore" . ?c)
+                      ("idea" . ?i)
+                      ("important" . ?I)
+                      ("productivity" . ?P)
+                      ("project" . ?j)
+                      ("reminder" . ?r)
                       ))
 
 (setq org-todo-keywords
