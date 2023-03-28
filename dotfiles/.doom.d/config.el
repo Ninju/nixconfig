@@ -46,8 +46,9 @@
 ;; You can also try 'gd' (or 'C-c g d') to jump to their definition and see how
 ;; they are implemented.
 
+(remove-hook 'doom-first-input-hook #'evil-snipe-mode)
 (setq doom-leader-key ","
-      doom-localleader-key "\\")
+      doom-localleader-key ";")
 
 (setq evil-ex-substitute-global nil
       evil-ex-substitute-case 'smart)
