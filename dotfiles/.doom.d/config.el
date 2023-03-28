@@ -88,6 +88,8 @@
   "Load a file in current user's configuration directory"
   (load-file (expand-file-name file aw/user-init-dir)))
 
+(global-display-fill-column-indicator-mode t)
+
 (load-user-file "functions.el")
 (load-user-file "keybindings.el")
 (load-user-file "markdown.el")
