@@ -294,3 +294,13 @@
       org-default-priority ?C
       org-lowest-priority  ?E)
 
+
+;; Inspect 'doom-themes--colors' to see options:
+;;   e.g. (doom-color 'red '256)
+;;   e.g. (doom-color 'red '16)
+(setq org-priority-faces
+      '((?A :foreground "#f7768e")
+        (?B :foreground "#ff9e64")
+        (?C :foreground "#2ac3de")
+        (?D :foreground "#e0af68")
+        (?E :foreground "#bb9af7")))
