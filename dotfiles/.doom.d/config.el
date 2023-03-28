@@ -289,3 +289,8 @@
 
 (setq org-todo-keywords
       '((sequence "IDEA" "DEF" "TODO" "NEXT" "IN-PROCESS" "|" "DONE" "KILL")))
+
+(setq org-highest-priority ?A
+      org-default-priority ?C
+      org-lowest-priority  ?E)
+
