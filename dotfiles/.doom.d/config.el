@@ -346,6 +346,7 @@
                       ("productivity" . ?P)
                       ("idea" . ?i)
                       ("important" . ?I)
+                      ("decision" . ?d)
                       ("digital_cleanliness" . ?x)
                       ("errand" . ?e)
                       ("chore" . ?c)
