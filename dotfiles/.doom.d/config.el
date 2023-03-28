@@ -189,10 +189,10 @@
                                "* TODO %i%?")
                               ("T" "Tickler" entry
                                (file+headline gtd-tickler-file "Tickler")
-                               "* %i%? \n %U")
+                               "* EVENT %i%? \n %U")
                               ("r" "Retro" entry
                                (file+headline retro-file "Retro")
-                               "* IDEA %i%? \n %U")))
+                               "* DEF %i%? \n %U")))
 
 (setq org-refile-targets '((gtd-gtd-file :maxlevel . 3)
                            (gtd-someday-file :level . 1)
