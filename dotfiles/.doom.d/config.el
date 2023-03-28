@@ -268,3 +268,21 @@
            (string= "KILL"     (org-get-todo-state)))))
 
 ;; End Source -- https://emacs.cafe/emacs/orgmode/gtd/2017/06/30/orgmode-gtd.html
+
+(setq org-tag-alist '(("@work" . ?w)
+                      ("@personal" . ?p)
+                      ("@home" . ?h)
+                      ("@office" . ?o)
+
+                      ("_blocked" . ?b)
+                      ("_delegated" . ?B)
+
+                      ("reminder" . ?r)
+                      ("project" . ?j)
+                      ("productivity" . ?P)
+                      ("idea" . ?i)
+                      ("important" . ?I)
+                      ("digital_cleanliness" . ?x)
+                      ("errand" . ?e)
+                      ("chore" . ?c)
+                      ))
