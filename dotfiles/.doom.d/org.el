@@ -73,7 +73,7 @@
                 ((org-agenda-overriding-header "Stand-up Items")))
           (tags "@team"
                 ((org-agenda-overriding-header "Raise with Team")))
-          (todo "DONE"
+          (todo "+@work+TODO=\"DONE\""
                 ((org-agenda-overriding-header "DONE")))
           (tags "+@work+TODO=\"TODO\""
                 ((org-agenda-overriding-header "TODO")
@@ -81,11 +81,15 @@
           (agenda ""
                   ((org-agenda-span 1)
                    (org-agenda-start-day "+0d")
+                   (org-agenda-skip-function
+                    '(aw/org-agenda-skip-all-tags-except "+@work"))
                    (org-deadline-warning-days 1)
                    (org-agenda-overriding-header "Today")))
           (agenda ""
                   ((org-agenda-span 3)
                    (org-agenda-start-day "+1d")
+                   (org-agenda-skip-function
+                    '(aw/org-agenda-skip-all-tags-except "+@work"))
                    (org-deadline-warning-days 0)
                    (org-agenda-overriding-header "Next 3 days")))))
 
