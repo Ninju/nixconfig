@@ -23,7 +23,9 @@
       :map 'normal
       ", c l" #'sly-compile-and-load-file
       ", c o" #'sly-eval-print-last-expression
+      ", c O" #'sly-macroexpand-1-inplace
       ", c u" #'sly-eval-last-expression
+      ", c U" #'sly-macroexpand-1
       ", c z" #'sly-mrepl)
 
 (map! :mode #'sly-mrepl-mode
