@@ -286,3 +286,6 @@
                       ("errand" . ?e)
                       ("chore" . ?c)
                       ))
+
+(setq org-todo-keywords
+      '((sequence "IDEA" "DEF" "TODO" "NEXT" "IN-PROCESS" "|" "DONE" "KILL")))
