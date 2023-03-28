@@ -198,6 +198,33 @@
                            (gtd-someday-file :level . 1)
                            (gtd-tickler-file :maxlevel . 2)))
 
+(defun aw/org-tag-at-point-p (tagmatchstr)
+  "Return non-nil if tag at point matches tagmatchstr
+
+'tagmatchstr' is a string of the same format at 'org-tags-view'"
+  (funcall (cdr (org-make-tags-matcher tagmatchstr))
+           (org-get-todo-state)
+           (org-get-tags-at)
+           (org-reduced-level (org-current-level))))
+
+(defun aw/org-agenda-skip-all-tags-except (tagmatchstr)
+  "Skip current headline unless it has a tag matching the 'tagmatchstr'."
+  (save-excursion
+    (unless (org-at-heading-p) (org-back-to-heading))
+    (let ((next-headline (save-excursion
+                           (or (outline-next-heading) (point-max)))))
+      (if (aw/org-tag-at-point-p tagmatchstr) nil next-headline))))
+
+(defmacro aw/org-agenda-view-today (tags)
+  "'tags' is 'org-view-tags' format matcher to filter the view"
+  `(agenda ""
+    ((org-agenda-span 1)
+     (org-agenda-skip-function
+      '(aw/org-agenda-skip-all-tags-except ,tags))
+     (org-agenda-start-day "+0d")
+     (org-deadline-warning-days 1)
+     (org-agenda-overriding-header "Today"))))
+
 (setq org-agenda-custom-commands
       '(("s" "Stand-up"
          ((tags "@standup"
