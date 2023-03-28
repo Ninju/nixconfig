@@ -51,18 +51,37 @@ in
 
   services.dunst.enable = true;
 
-  services.dunst.settings = {
+  services.dunst.settings = rec {
     global = {
+      transparency = 30;
       width = 300;
       height = 300;
       offset = "20x40";
-      origin = "top-right";
-      transparency = 30;
-      frame_color = "#eceff1";
-      background = "#24283b";
-      foreground = "#c0caf5";
       highlight = "#292e42";
       font = "JetBrainsMono Nerd 9";
+    };
+
+    urgency_normal = {
+      origin = "top-right";
+      foreground = "#c0caf5";
+      background = "#24283b";
+      frame_color = "#eceff1";
+    };
+
+    urgency_critical = {
+      transparency = 0;
+      background = "#990000";
+      frame_color = "#ffffff";
+      origin = "top-center";
+      foreground = "#f0f0f0";
+    };
+
+    urgency_low = {
+      origin = "top-right";
+      foreground = "#c0caf5";
+      background = "#24283b";
+      frame_color = "#eceff1";
+      font = "JetBrainsMono Nerd 8";
     };
   };
 
