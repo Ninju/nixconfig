@@ -352,7 +352,7 @@
                       ))
 
 (setq org-todo-keywords
-      '((sequence "IDEA" "DEF" "TODO" "NEXT" "IN-PROCESS" "|" "DONE" "KILL")))
+      '((sequence "DEF" "TODO" "IN-PROCESS" "|" "DONE" "KILL")))
 
 ;; Brian Tracy: ABCDE method for prioritisation
 ;; https://www.briantracy.com/blog/time-management/the-abcde-list-technique-for-setting-priorities/
