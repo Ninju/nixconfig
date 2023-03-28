@@ -264,8 +264,7 @@
 
         ("T" "All tasks"
          ((alltodo ""
-                ((org-agenda-overriding-header "Focus")
-                 (org-agenda-skip-function #'my-org-agenda-skip-all-siblings-but-first)))
+                   ((org-agenda-overriding-header "All Tasks")))
           (agenda ""
                   ((org-agenda-span 1)
                    (org-agenda-start-day "+0d")
@@ -274,6 +273,44 @@
           (agenda ""
                   ((org-agenda-span 3)
                    (org-agenda-start-day "+1d")
+                   (org-deadline-warning-days 0)
+                   (org-agenda-overriding-header "Next 3 days")))))
+
+        ("w" "@work tasks"
+         ((tags "@work"
+                ((org-agenda-overriding-header "Work TODOs")
+                 (org-agenda-skip-function #'my-org-agenda-skip-all-siblings-but-first)))
+          (agenda ""
+                  ((org-agenda-span 1)
+                   (org-agenda-start-day "+0d")
+                   (org-agenda-skip-function
+                    '(aw/org-agenda-skip-all-tags-except "+@work"))
+                   (org-deadline-warning-days 1)
+                   (org-agenda-overriding-header "Today")))
+          (agenda ""
+                  ((org-agenda-span 3)
+                   (org-agenda-skip-function
+                    '(aw/org-agenda-skip-all-tags-except "+@work"))
+                   (org-agenda-start-day "+1d")
+                   (org-deadline-warning-days 0)
+                   (org-agenda-overriding-header "Next 3 days")))))
+
+        ("p" "@personal tasks"
+         ((tags "@personal"
+                ((org-agenda-overriding-header "Personal TODOs")
+                 (org-agenda-skip-function #'my-org-agenda-skip-all-siblings-but-first)))
+          (agenda ""
+                  ((org-agenda-span 1)
+                   (org-agenda-start-day "+0d")
+                   (org-agenda-skip-function
+                    '(aw/org-agenda-skip-all-tags-except "+@personal"))
+                   (org-deadline-warning-days 1)
+                   (org-agenda-overriding-header "Today")))
+          (agenda ""
+                  ((org-agenda-span 3)
+                   (org-agenda-start-day "+1d")
+                   (org-agenda-skip-function
+                    '(aw/org-agenda-skip-all-tags-except "+@personal"))
                    (org-deadline-warning-days 0)
                    (org-agenda-overriding-header "Next 3 days")))))))
 
