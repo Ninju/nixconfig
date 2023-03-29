@@ -12,6 +12,7 @@ in
   home.file.".kitty-themes".source = "${specialArgs.kitty-themes}";
 
   services.lorri.enable = true;
+  programs.direnv.enable = true;
 
   # https://nix.dev/anti-patterns/language#with-attrset-expression
   home.packages = builtins.attrValues {
@@ -26,8 +27,6 @@ in
       dm-translate
       dm-websearch
       dm-wifi
-
-      direnv
 
       feh
       fzf
