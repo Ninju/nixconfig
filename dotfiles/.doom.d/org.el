@@ -188,6 +188,7 @@
                       ("_delegated" . ?B)
 
                       ("chore" . ?c)
+                      ("clean" . ?x)
                       ("decision" . ?d)
                       ("digital_cleanliness" . ?x)
                       ("errand" . ?e)
