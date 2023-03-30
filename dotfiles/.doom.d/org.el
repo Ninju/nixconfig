@@ -78,6 +78,9 @@
           (tags "+@work+TODO=\"TODO\""
                 ((org-agenda-overriding-header "TODO")
                  (org-agenda-skip-function #'my-org-agenda-skip-all-siblings-but-first)))
+          (tags "+@work+_blocked"
+                ((org-agenda-overriding-header "Blocked")
+                 (org-agenda-skip-function #'my-org-agenda-skip-all-siblings-but-first)))
           (agenda ""
                   ((org-agenda-span 1)
                    (org-agenda-start-day "+0d")
