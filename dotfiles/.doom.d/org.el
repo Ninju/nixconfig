@@ -177,8 +177,11 @@
           (goto-char (point-max))))))
 
 (defun org-current-is-todo ()
-  (not (or (string= "DONE"     (org-get-todo-state))
-           (string= "KILL"     (org-get-todo-state)))))
+  (or (string= "TODO"       (org-get-todo-state))
+      (string= "IN-PROCESS" (org-get-todo-state))))
+
+(defun org-current-is-not-todo ()
+  (not (org-current-is-todo)))
 
 ;; End Source -- https://emacs.cafe/emacs/orgmode/gtd/2017/06/30/orgmode-gtd.html
 
