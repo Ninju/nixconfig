@@ -123,8 +123,11 @@
                    (org-agenda-overriding-header "Next 3 days")))))
 
         ("w" "@work tasks"
-         ((tags "@work"
+         ((tags "+@work-_blocked"
                 ((org-agenda-overriding-header "Work TODOs")
+                 (org-agenda-skip-function #'my-org-agenda-skip-all-siblings-but-first)))
+          (tags "+@work+_blocked"
+                ((org-agenda-overriding-header "Blocked")
                  (org-agenda-skip-function #'my-org-agenda-skip-all-siblings-but-first)))
           (agenda ""
                   ((org-agenda-span 1)
