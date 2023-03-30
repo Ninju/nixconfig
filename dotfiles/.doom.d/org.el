@@ -34,7 +34,7 @@
                                "* EVENT %i%? \n %U")
                               ("r" "Retro" entry
                                (file+headline retro-file "Retro")
-                               "* DEF %i%? \n %U")))
+                               "* IDEA %i%? \n %U")))
 
 (setq org-refile-targets '((gtd-gtd-file :maxlevel . 3)
                            (gtd-someday-file :level . 1)
