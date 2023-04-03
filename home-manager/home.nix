@@ -45,6 +45,8 @@ in
       u
       kubectl
 
+      pandoc
+
       xpad
     ; };
 
