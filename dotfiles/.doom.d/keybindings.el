@@ -32,3 +32,8 @@
         :i "<up>"   #'sly-mrepl-previous-input-or-button
         :i "<down>" #'sly-mrepl-previous-input-or-button
         :n "<leader> c z" #'previous-buffer)
+
+(map! :mode #'cue-mode
+      :map 'visual
+      ", c /" #'comment-region
+      ", c \\" #'uncomment-region)
