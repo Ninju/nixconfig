@@ -37,6 +37,9 @@ in
       wget
       yq
 
+      pgcli
+      postgresql
+
       ranger
       sbcl
 
