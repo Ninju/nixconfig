@@ -33,6 +33,14 @@
         :i "<down>" #'sly-mrepl-previous-input-or-button
         :n "<leader> c z" #'previous-buffer)
 
+(map! :mode #'sql-interactive-mode
+      :map 'normal
+      ", c l" #'sql-send-buffer
+      ", c r" #'sql-send-region
+      ", c s" #'sql-send-string
+      ", c u" #'sql-send-paragraph
+      ", c p" #'sql-send-paragraph)
+
 (map! :mode #'cue-mode
       :map 'visual
       ", c /" #'comment-region
