@@ -20,6 +20,8 @@ in
       bat
       csvkit
 
+      docker-compose
+
       dm-colpick
       dm-ip
       dm-kill
