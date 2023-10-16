@@ -50,6 +50,8 @@ in
       u
       kubectl
 
+      inkscape
+
       pandoc
 
       xpad
