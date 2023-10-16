@@ -80,6 +80,8 @@
   :recipe (:host github
            :repo "kmonad/kbd-mode"))
 
+(package! emojify)
+
 (after! simple-httpd
   (setq httpd-port 7070)
   (setq httpd-host "localhost"))
