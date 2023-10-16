@@ -51,6 +51,8 @@ in
       kubectl
 
       pandoc
+      cue
+      unzip
 
       xpad
     ; };
