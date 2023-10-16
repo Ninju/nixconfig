@@ -129,9 +129,6 @@
          ((tags "+@work-_blocked"
                 ((org-agenda-overriding-header "Work TODOs")
                  (org-agenda-skip-function #'my-org-agenda-skip-all-siblings-but-first)))
-         ((tags "+@work"
-                ((org-agenda-overriding-header "Work TODOs")
-                 (org-agenda-skip-function #'my-org-agenda-skip-all-siblings-but-first))))
           (tags "+@work+_blocked"
                 ((org-agenda-overriding-header "Blocked")
                  (org-agenda-skip-function #'my-org-agenda-skip-all-siblings-but-first)))
