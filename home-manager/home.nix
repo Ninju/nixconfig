@@ -5,7 +5,7 @@ in
 {
   home.username = username;
   home.homeDirectory = "/home/${username}";
-  home.stateVersion = "22.11"; # To figure this out you can comment out the line and see what version it expected.
+  home.stateVersion = "23.05"; # To figure this out you can comment out the line and see what version it expected.
   programs.home-manager.enable = true;
 
   home.file.".dtos-backgrounds".source = "${specialArgs.dtos-backgrounds}";
@@ -53,6 +53,8 @@ in
       inkscape
 
       pandoc
+      cue
+      unzip
 
       xpad
     ; };
