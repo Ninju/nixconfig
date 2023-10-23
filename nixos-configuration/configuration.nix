@@ -63,9 +63,19 @@
   services.xserver.layout = "gb";
 
   # --- CONSOLE SETTINGS ---
+  # Bigger TTY fonts...
+  # Can scale up i3 bar to 2x by changing dpi value to 180 (90 x 2)
+  services.xserver.dpi = 90;
+  environment.variables = {
+    GDK_SCALE = "1.0";
+    GDK_DPI_SCALE = "1.0";
+    _JAVA_OPTIONS = "-Dsun.java2d.uiScale=1.0";
+  };
+
   console = {
     earlySetup = true;
     font = "ter-i32b";
+    # font = "${pkgs.terminus_font}/share/consolefonts/ter-u28n.psf.gz";
     packages = [ pkgs.terminus_font ];
     keyMap = "uk";
   };
