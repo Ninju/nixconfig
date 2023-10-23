@@ -1,5 +1,23 @@
 {
   "nodes": {
+    "awsvpnclient": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_5"
+      },
+      "locked": {
+        "lastModified": 1650433861,
+        "narHash": "sha256-Pnw59wD6KRi0lwumzD1qs3S8yjldMCWjRZXWXU905rs=",
+        "owner": "ymatsiuk",
+        "repo": "awsvpnclient",
+        "rev": "52d52fcbebdc15191c86df15cd12434e900e52ae",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ymatsiuk",
+        "repo": "awsvpnclient",
+        "type": "github"
+      }
+    },
     "dmenu-scripts": {
       "inputs": {
         "nixpkgs": "nixpkgs"
@@ -268,6 +286,33 @@
         "type": "github"
       }
     },
+    "nixpkgs_5": {
+      "locked": {
+        "narHash": "sha256-8nQx02tTzgYO21BP/dy5BCRopE8OwE8Drsw98j+Qoaw=",
+        "path": "/nix/store/a33ann70s2kqn8q1h4vv4il56i0lk60g-source",
+        "type": "path"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "type": "indirect"
+      }
+    },
+    "nixpkgs_6": {
+      "locked": {
+        "lastModified": 1678072060,
+        "narHash": "sha256-6a9Tbjhir5HxDx4uw0u6Z+LHUfYf7tsT9QxF9FN/32w=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "47c003416297e4d59a5e3e7a8b15cdbdf5110560",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-22.11",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "pypi-deps-db": {
       "flake": false,
       "locked": {
@@ -297,7 +342,27 @@
         "kmonad": "kmonad",
         "mach-nix": "mach-nix",
         "nixos-hardware": "nixos-hardware",
-        "nixpkgs": "nixpkgs_4"
+        "nixpkgs": "nixpkgs_4",
+        "uswitch-nixpkgs": "uswitch-nixpkgs"
+      }
+    },
+    "uswitch-nixpkgs": {
+      "inputs": {
+        "awsvpnclient": "awsvpnclient",
+        "nixpkgs": "nixpkgs_6"
+      },
+      "locked": {
+        "lastModified": 1689841790,
+        "narHash": "sha256-dwa5JzlFGKynGnsBN3c1nxYxFWGomO+6f41stJhVWgo=",
+        "ref": "refs/heads/master",
+        "rev": "7845e83ce935c3302b648effc98d03090bf6c53e",
+        "revCount": 43,
+        "type": "git",
+        "url": "ssh://git@github.com/uswitch/nixpkgs"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@github.com/uswitch/nixpkgs"
       }
     }
   },
