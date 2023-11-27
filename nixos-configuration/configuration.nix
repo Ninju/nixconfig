@@ -13,8 +13,23 @@
   ];
 
   fonts.fonts = with pkgs; [
+    google-fonts
+    inter
+    vistafonts
+    corefonts
+    ubuntu_font_family
+
+    dina-font
+    fira-code
+    fira-code-symbols
     jetbrains-mono
+    liberation_ttf
+    mplus-outline-fonts.githubRelease
     nerdfonts
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
+    proggyfonts
   ];
 
   virtualisation.docker.enable = true;
