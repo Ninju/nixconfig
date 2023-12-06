@@ -36,7 +36,8 @@
     (cons 320 "#ae8d8d")
     (cons 340 "#383a42")
     (cons 360 "#383a42")))
- '(vc-annotate-very-old-color nil))
+ '(vc-annotate-very-old-color nil)
+ '(warning-suppress-types '((transient) (transient) (defvaralias))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
