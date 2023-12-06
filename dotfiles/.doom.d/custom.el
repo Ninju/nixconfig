@@ -45,3 +45,4 @@
  ;; If there is more than one, they won't work right.
  )
 (put 'narrow-to-region 'disabled nil)
+(put 'narrow-to-page 'disabled nil)
