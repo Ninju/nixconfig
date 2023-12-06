@@ -55,7 +55,7 @@ in
       unzip
 
       xpad
-    ; };
+    ; } ++ [ pkgs.lispPackages.quicklisp ];
 
   programs.git.userEmail = "alex.watt@rvu.co.uk";
 
