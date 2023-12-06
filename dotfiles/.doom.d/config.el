@@ -90,6 +90,8 @@
 
 (global-display-fill-column-indicator-mode t)
 
+
+(add-to-list 'auto-mode-alist '("\\.sqlx?\\'" . sql-mode))
 (load-user-file "functions.el")
 (load-user-file "keybindings.el")
 (load-user-file "markdown.el")
