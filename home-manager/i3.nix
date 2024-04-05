@@ -81,7 +81,7 @@ in
     package = pkgs.i3-gaps;
 
     config = rec {
-      terminal = "${pkgs.kitty}/bin/kitty";
+      terminal = "${pkgs.konsole}/bin/konsole";
       modifier = "Mod1"; # Left Alt
       menu = menus.runApps;
       keybindings = {
