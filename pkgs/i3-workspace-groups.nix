@@ -12,7 +12,13 @@
 
 mkDerivation {
   name = "i3-workspace-groups-wrapped";
-  src = buildPythonPackage { inherit src; };
+  src = buildPythonPackage {
+    pname = "i3-workspace-groups";
+    version = "github-dd73289e6c89efd574413c3d4d76879878aaa0ca";
+    inherit src;
+    format = "pyproject";
+    requirements = builtins.readFile "${src}/req/base.in";
+  };
   buildInputs = [ makeWrapper coreutils ];
   installPhase = ''
     mkdir -p $out
