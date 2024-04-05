@@ -48,8 +48,8 @@ in
 
   home.packages = [
     # i3block-contrib
-    pkgs.python3 pkgs.acpi # battery2
-    # pkgs.python3 # dunst
+    ### Blocks require Python, but this is declared in home.nix
+    pkgs.acpi # battery2
 
     pkgs.jetbrains-mono
     # For volume control pane
@@ -180,7 +180,7 @@ in
 
       gaps = {
         inner = 0;
-        outer = 0;
+        outer = 3;
       };
 
       window = {
@@ -196,7 +196,6 @@ in
       };
 
       assigns = {
-        "1" = [{ class = "^Emacs$"; }];
         "8" = [{ class = "^[zZ]oom"; }];
         "9" = [{ class = "^Slack$"; }];
       };

@@ -3,6 +3,54 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, ... }:
+let
+  makeAppleFont = name: pkgName: src:
+    pkgs.stdenv.mkDerivation {
+      inherit name src;
+
+      version = "0.3.0";
+
+      unpackPhase = ''
+                undmg $src
+                7z x '${pkgName}'
+                7z x 'Payload~'
+              '';
+
+      buildInputs = [pkgs.undmg pkgs.p7zip];
+      setSourceRoot = "sourceRoot=`pwd`";
+
+      installPhase = ''
+                mkdir -p $out/share/fonts
+                mkdir -p $out/share/fonts/opentype
+                mkdir -p $out/share/fonts/truetype
+                find -name \*.otf -exec mv {} $out/share/fonts/opentype/ \;
+                find -name \*.ttf -exec mv {} $out/share/fonts/truetype/ \;
+              '';
+    };
+
+  appleFontSources = {
+    sf-pro = {
+      url = "https://devimages-cdn.apple.com/design/resources/download/SF-Pro.dmg";
+      hash = "sha256-nkuHge3/Vy8lwYx9z+pvsQZfzrNIP4K0OutpPl4yXn0=";
+    };
+    sf-compact = {
+      url = "https://devimages-cdn.apple.com/design/resources/download/SF-Compact.dmg";
+      hash = "sha256-+Q4HInJBl3FLb29/x9utf7A55uh5r79eh/7hdQDdbSI=";
+    };
+    sf-mono = {
+      url = "https://devimages-cdn.apple.com/design/resources/download/SF-Mono.dmg";
+      hash = "sha256-pqkYgJZttKKHqTYobBUjud0fW79dS5tdzYJ23we9TW4=";
+    };
+    sf-arabic = {
+      url = "https://devimages-cdn.apple.com/design/resources/download/SF-Arabic.dmg";
+      hash = "sha256-MKcrCBtrxjm1DUZuvf2NKzcAzaiBjw1KgoDbKphrYkc=";
+    };
+    ny = {
+      url = "https://devimages-cdn.apple.com/design/resources/download/NY.dmg";
+      hash = "sha256-XOiWc4c7Yah+mM7axk8g1gY12vXamQF78Keqd3/0/cE=";
+    };
+  };
+in
 
 {
   imports = [
@@ -13,11 +61,34 @@
   ];
 
   fonts.fonts = with pkgs; [
+    google-fonts
+    inter
+    vistafonts
+    corefonts
+    ubuntu_font_family
+
+    dina-font
+    fira-code
+    fira-code-symbols
     jetbrains-mono
+    liberation_ttf
+    mplus-outline-fonts.githubRelease
     nerdfonts
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
+    proggyfonts
+
+    # Apple Fonts
+    (makeAppleFont "sf-pro" "SF Pro Fonts.pkg" (pkgs.fetchurl appleFontSources.sf-pro))
+    (makeAppleFont "sf-compact" "SF Compact Fonts.pkg" (pkgs.fetchurl appleFontSources.sf-compact))
+    (makeAppleFont "sf-mono" "SF Mono Fonts.pkg" (pkgs.fetchurl appleFontSources.sf-mono))
+    (makeAppleFont "sf-arabic" "SF Arabic Fonts.pkg" (pkgs.fetchurl appleFontSources.sf-arabic))
+    (makeAppleFont "ny" "NY Fonts.pkg" (pkgs.fetchurl appleFontSources.ny))
   ];
 
   virtualisation.docker.enable = true;
+  virtualisation.multipass.enable = true;
 
   # --- BLUETOOTH SETTINGS
   services.blueman.enable = true;

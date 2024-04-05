@@ -13,8 +13,8 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
-;; (setq doom-font (font-spec :family "monospace" :size 12 :weight 'semi-light)
-;;       doom-variable-pitch-font (font-spec :family "sans" :size 13))
+(setq doom-font (font-spec :family "Hack" :size 16 :weight 'regular)
+      doom-variable-pitch-font (font-spec :family "sans" :size 13))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
@@ -89,6 +89,44 @@
   (load-file (expand-file-name file aw/user-init-dir)))
 
 (global-display-fill-column-indicator-mode t)
+
+
+;; Emergency (transient): Transient requires ‘seq’ >= 2.24,
+;; but due to bad defaults, Emacs’ package manager, refuses to
+;; upgrade this and other built-in packages to higher releases
+;; from GNU Elpa, when a package specifies that this is needed.
+
+;; To fix this, you have to add this to your init file:
+
+;;   (setq package-install-upgrade-built-in t)
+(setq package-install-upgrade-built-in t)
+
+;; Then evaluate that expression by placing the cursor after it
+;; and typing C-x C-e.
+
+;; Once you have done that, you have to explicitly upgrade ‘seq’:
+;
+;;   M-x package-upgrade seq \‘RET’
+
+;; Then you also must make sure the updated version is loaded,
+;; by evaluating this form:
+
+;;   (progn (unload-feature ’seq t) (require ’seq))
+
+;; Until you do this, you will get random errors about ‘seq-keep’
+;; being undefined while using Transient.
+
+;; If you don’t use the ‘package’ package manager but still get
+;; this warning, then your chosen package manager likely has a
+;; similar defect. Disable showing Disable logging
+;;
+;; NOTE: I have "Disable showing"
+;;
+(use-package! chatgpt
+  :defer t
+  :bind ("C-c q" . chatgpt-query))
+
+(add-to-list 'auto-mode-alist '("\\.sqlx?\\'" . sql-mode))
 
 (load-user-file "functions.el")
 (load-user-file "keybindings.el")

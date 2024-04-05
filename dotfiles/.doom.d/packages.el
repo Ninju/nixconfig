@@ -80,7 +80,17 @@
   :recipe (:host github
            :repo "kmonad/kbd-mode"))
 
+(package! vcl-mode)
+
 (package! emojify)
+
+(package! structurizr-mode
+  :recipe (:host github :repo "gilesp/structurizr-mode" :files ("dist" "*.el")))
+
+(package! evil-visualstar)
+
+(package! chatgpt
+  :recipe (:host github :repo "joshcho/ChatGPT.el" :files ("dist" "*.el")))
 
 (after! simple-httpd
   (setq httpd-port 7070)
