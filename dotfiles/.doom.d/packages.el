@@ -80,6 +80,8 @@
   :recipe (:host github
            :repo "kmonad/kbd-mode"))
 
+(package! vcl-mode)
+
 (package! emojify)
 
 (after! simple-httpd
