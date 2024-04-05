@@ -48,8 +48,8 @@ in
 
   home.packages = [
     # i3block-contrib
-    pkgs.python3 pkgs.acpi # battery2
-    # pkgs.python3 # dunst
+    ### Blocks require Python, but this is declared in home.nix
+    pkgs.acpi # battery2
 
     pkgs.jetbrains-mono
     # For volume control pane
