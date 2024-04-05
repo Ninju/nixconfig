@@ -43,6 +43,7 @@ in
       postgresql
 
       ranger
+
       sbcl
 
       google-chrome
