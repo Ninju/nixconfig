@@ -88,6 +88,7 @@ in
   ];
 
   virtualisation.docker.enable = true;
+  virtualisation.multipass.enable = true;
 
   # --- BLUETOOTH SETTINGS
   services.blueman.enable = true;

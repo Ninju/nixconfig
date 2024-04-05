@@ -84,6 +84,9 @@
 
 (package! emojify)
 
+(package! structurizr-mode
+  :recipe (:host github :repo "gilesp/structurizr-mode" :files ("dist" "*.el")))
+
 (package! evil-visualstar)
 
 (package! chatgpt
