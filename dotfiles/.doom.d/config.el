@@ -122,6 +122,9 @@
 ;;
 ;; NOTE: I have "Disable showing"
 ;;
+(use-package! chatgpt
+  :defer t
+  :bind ("C-c q" . chatgpt-query))
 
 (add-to-list 'auto-mode-alist '("\\.sqlx?\\'" . sql-mode))
 
