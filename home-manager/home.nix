@@ -54,8 +54,19 @@ in
       cue
       unzip
 
+      jupyter
+
       xpad
-    ; } ++ [ pkgs.lispPackages.quicklisp ];
+    ; } ++ [
+      pkgs.lispPackages.quicklisp
+      (pkgs.python3.withPackages (pythonPackages: with pythonPackages; [
+        ipykernel
+        pandas
+        scikit-learn
+        ipython
+        tornado
+      ]))
+    ];
 
   programs.git.userEmail = "alex.watt@rvu.co.uk";
 
