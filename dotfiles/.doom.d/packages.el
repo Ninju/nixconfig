@@ -86,6 +86,9 @@
 
 (package! evil-visualstar)
 
+(package! chatgpt
+  :recipe (:host github :repo "joshcho/ChatGPT.el" :files ("dist" "*.el")))
+
 (after! simple-httpd
   (setq httpd-port 7070)
   (setq httpd-host "localhost"))
