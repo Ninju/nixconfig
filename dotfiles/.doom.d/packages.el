@@ -84,6 +84,8 @@
 
 (package! emojify)
 
+(package! evil-visualstar)
+
 (after! simple-httpd
   (setq httpd-port 7070)
   (setq httpd-host "localhost"))
