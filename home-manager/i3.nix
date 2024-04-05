@@ -196,7 +196,6 @@ in
       };
 
       assigns = {
-        "1" = [{ class = "^Emacs$"; }];
         "8" = [{ class = "^[zZ]oom"; }];
         "9" = [{ class = "^Slack$"; }];
       };
