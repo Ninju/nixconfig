@@ -180,7 +180,7 @@ in
 
       gaps = {
         inner = 0;
-        outer = 0;
+        outer = 3;
       };
 
       window = {
