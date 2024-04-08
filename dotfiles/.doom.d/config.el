@@ -81,7 +81,7 @@
 
 (remove-hook 'doom-first-buffer-hook #'smartparens-global-mode)
 
-(defconst aw/user-init-dir "~/.doom.d/")
+(defconst aw/user-init-dir "~/.config/doom/")
 
 (defun load-user-file (file)
   (interactive "f")
