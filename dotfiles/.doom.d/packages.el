@@ -62,6 +62,8 @@
 (package! simple-httpd)
 (package! feature-mode)
 
+(package! exec-path-from-shell)
+
 ;; Minor mode that allows you to see the effect of buffer changes on HTML pages
 ;; 1. Start the server (httpd-start)
 ;; 2. Add minor mode to buffer(s) you want to watch: (impatient-mode)
