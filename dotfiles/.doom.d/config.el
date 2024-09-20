@@ -127,6 +127,7 @@
   :bind ("C-c q" . chatgpt-query))
 
 (add-to-list 'auto-mode-alist '("\\.sqlx?\\'" . sql-mode))
+(add-to-list 'auto-mode-alist '("\\.astro\\'" . web-mode))
 
 (load-user-file "functions.el")
 (load-user-file "keybindings.el")
